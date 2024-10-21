@@ -33,7 +33,7 @@ paths:
     post:
       security:
         - openId:
-          - number-recycling:check
+            - number-recycling:check
       tags:
         - Check Number Recycling
       description: Check whether the subscriber of the phone number has changed.
