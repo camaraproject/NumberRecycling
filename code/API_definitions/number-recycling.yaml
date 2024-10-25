@@ -237,12 +237,12 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorInfo'
           example:
-            NotSupported
+            NotSupported:
               value:
                 status: 422
                 code: NOT_SUPPORTED
                 detail: Service not supported for this phoneNumber
-            UnidentifiablePhoneMumber
+            UnidentifiablePhoneMumber:
               value:
                 status: 422
                 code: UNIDENTIFIABLE_PHONE_NUMBER
