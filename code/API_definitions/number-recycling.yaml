@@ -236,7 +236,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorInfo'
-          example:
+          examples:
             NotSupported:
               value:
                 status: 422
