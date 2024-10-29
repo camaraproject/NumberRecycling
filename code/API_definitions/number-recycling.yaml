@@ -113,14 +113,16 @@ components:
         - specifiedDate
       properties:
         phoneNumber:
-          type: string
-          pattern: '^\+[1-9][0-9]{4,14}$'
-          example: '+346661113334'
-          description: A public identifier addressing a telephone subscription. In mobile networks it corresponds to the MSISDN (Mobile Station International Subscriber Directory Number). In order to be globally unique it has to be formatted in international format, according to E.164 standard, prefixed with '+'.
+          $ref: '#/components/schemas/PhoneNumber'
         specifiedDate:
           type: string
           format: date-time
           description: Specified date to check whether there has been a change in the subscriber associated with the specific phone number. It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone. Recommended format is yyyy-MM-dd'T'HH:mm:ss.SSSZ (i.e. which allows 2023-07-03T14:27:08.312+02:00 or 2023-07-03T12:27:08.312Z)
+    PhoneNumber:
+      description: A public identifier addressing a telephone subscription. In mobile networks it corresponds to the MSISDN (Mobile Station International Subscriber Directory Number). In order to be globally unique it has to be formatted in international format, according to E.164 standard, prefixed with '+'.
+      type: string
+      pattern: '^\+[1-9][0-9]{4,14}$'
+      example: "+123456789"
     CheckNumRecyclingInfo:
       type: object
       required:
