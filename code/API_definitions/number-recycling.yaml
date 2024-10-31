@@ -109,11 +109,16 @@ components:
   schemas:
     CreateCheckNumRecycling:
       type: object
-      required:
-        - specifiedDate
+      oneOf:
+        - required: [specifiedDateTime]
+        - required: [specifiedDate]
       properties:
         phoneNumber:
           $ref: '#/components/schemas/PhoneNumber'
+        specifiedDateTime:
+          type: string
+          format: date-time
+          description: Specified date to check whether there has been a change in the subscriber associated with the specific phone number. It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone. Recommended format is yyyy-MM-dd'T'HH:mm:ss.SSSZ (i.e. which allows 2023-07-03T14:27:08.312+02:00 or 2023-07-03T12:27:08.312Z) 
         specifiedDate:
           type: string
           description: Specified date to check whether there has been a change in the subscriber associated with the specific phone number, in ISO 8601 calendar date format (YYYY-MM-DD).
