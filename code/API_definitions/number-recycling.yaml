@@ -3,9 +3,26 @@ info:
   title: Number Recycling
   description: |
     The API can be used to check whether the subscriber of the phone number has changed.
-    A common scenario is when a fraudster obtains a phone number that previously belonged to another person who did not properly deactivate or verify it. The fraudster can then use this number to commit identity theft or engage in fraudulent activities, such as obtaining access codes for accounts associated with that number. In some cases, fraudsters may also attempt to use services or avoid charges by leveraging old, no longer used numbers that were previously used by other users.
-    Response includes whether there will be changes from the specified date.
+    A common scenario is when Application service provider (ASP) wants to check whether there has been a change in the user associated with the phone number after the specified date. This allows the ASP to ensure that a phone number is correctly linked to an user and prevent the mis-delivery of SMS messages.
 
+    For example, below is a potential scenario (see the figure below):
+    * Pre-conditions
+      * User A signed a contract with MNO A for the phone number '+123456789' on October 9, 2023, and canceled it on February 25, 2024. Subsequently, User B signed a contract with MNO A for the same phone number on September 21, 2024, and is still using it.
+      * User A also signed contracts with ASP A on December 22, 2023 for its services.
+      * ASP A holds the contract date (2023-12-22) and the phone number (+123456789) for User A.
+      * Currently, on November 2, 2024, ASP A wishes to send a SMS message to User A.
+    * Potential operations
+      * ASP A sends a request with specified date (2023-12-22) and phone number (+123456789) to the Number Recycling API.
+      * The API response sets to 'true', indicating that there has been a change in the user associated with the phone number.
+    * Post-conditions
+      * ASP A decides to stop sending the SMS message to User A and contacts User A by mail.
+    * By following these steps, ASP A ensures that a phone number is not linked to User A and prevents the mis-delivery of the SMS message.
+
+    <img width="1134" alt="Number_Recycling_scenario" src="https://raw.githubusercontent.com/camaraproject/NumberRecycling/main/documentation/API_documentation/assets/Number_Recycling_scenario.png">
+
+    Note:
+    * When the API receives a request with specified date during which there is no contract with MNO for the phone number, the API respond sets to 'true'(see the scenerio in the figure above).
+    
     ### Authorization and authentication
 
     The "Camara Security and Interoperability Profile" provides details on how a client requests an access token. Please refer to Identify and Consent Management (https://github.com/camaraproject/IdentityAndConsentManagement/) for the released version of the Profile.
