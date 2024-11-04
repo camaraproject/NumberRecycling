@@ -22,7 +22,7 @@ info:
 
     Note:
     * When the API receives a request with specified date during which there is no contract with MNO for the phone number, the API respond sets to 'true'(see the scenerio in the figure above).
-    
+
     ### Authorization and authentication
 
     The "Camara Security and Interoperability Profile" provides details on how a client requests an access token. Please refer to Identify and Consent Management (https://github.com/camaraproject/IdentityAndConsentManagement/) for the released version of the Profile.
