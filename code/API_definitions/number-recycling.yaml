@@ -19,7 +19,7 @@ info:
         * ASP A decides to send the SMS message to User A.
       * By following these steps, ASP A ensures that a phone number is linked to User A.
 
-    <img width="4000" alt="Number_Recycling_scenario_1" src="https://raw.githubusercontent.com/yamamoto0104/NumberRecycling/refs/heads/yamamoto_initial-yaml_r1/documentation/API_documentation/assets/Number_Recycling_scenario_1.png">
+    <img width="4000" alt="Number_Recycling_scenario_1" src="https://raw.githubusercontent.com/camaraproject/NumberRecycling/main/documentation/API_documentation/assets/Number_Recycling_scenario_1.png">
 
       * Scenario 2
         * Pre-conditions
