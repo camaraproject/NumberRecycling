@@ -21,6 +21,9 @@ info:
 
     <img width="4000" alt="Number_Recycling_scenario_1" src="https://raw.githubusercontent.com/camaraproject/NumberRecycling/main/documentation/API_documentation/assets/Number_Recycling_scenario_1.png">
 
+    Note:
+    * When API receives a request with specified date on which a user signed a contract with MNO, the API respond sets to 'false'(e.g., 2023-10-09 in the Scenario 1 of the figure above).
+
       * Scenario 2
         * Pre-conditions
           * User A signed a contract with MNO A for the phone number '+123456789' on October 9, 2023, and canceled it on February 25, 2024. Subsequently, User B signed a contract with MNO A for the same phone number on September 21, 2024, and is still using it.
@@ -37,7 +40,7 @@ info:
     <img width="4000" alt="Number_Recycling_scenario_2" src="https://raw.githubusercontent.com/camaraproject/NumberRecycling/main/documentation/API_documentation/assets/Number_Recycling_scenario_2.png">
 
     Note:
-    * When the API receives a request with specified date during which there is no contract with MNO for the phone number, the API respond sets to 'true'(e.g., the period between 2024-02-25 and 2024-09-21 in the Scenario 2 of the figure above).
+    * When the API receives a request with specified date during which there is no contract with MNO for the phone number, the API respond sets to 'true'(e.g., the period between 2024-02-25 and 2024-09-20 in the Scenario 2 of the figure above).
 
     ### Authorization and authentication
 
