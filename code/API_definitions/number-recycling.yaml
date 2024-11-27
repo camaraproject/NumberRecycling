@@ -50,29 +50,19 @@ info:
 
     It is important to remark that in cases where personal user data is processed by the API, and users can exercise their rights through mechanisms such as opt-in and/or opt-out, the use of 3-legged access tokens becomes mandatory. This measure ensures that the API remains in strict compliance with user privacy preferences and regulatory obligations, upholding the principles of transparency and user-centric data control.
 
-    # Identifying a phone number from the access token
+    # Identifying the phone number from the access token
 
-    This specification defines the `phoneNumber` field as optional in API requests, specifically in cases where the API is accessed using a 3-legged access token, and the phone number can be uniquely identified by the token. This approach simplifies API usage for API consumers by relying on the information associated with the access token used to invoke the API.
+    This API requires the API consumer to identify a phone number as the subject of the API as follows:
+    - When the API is invoked using a two-legged access token, the subject will be identified from the optional `phoneNumber` field, which therefore MUST be provided.
+    - When a three-legged access token is used however, this optional identifier MUST NOT be provided, as the subject will be uniquely identified from the access token.
 
-    ## Handling of phone number information:
+This approach simplifies API usage for API consumers using a three-legged access token to invoke the API by relying on the information that is associated with the access token and was identified during the authentication process.
 
-    ### Optional `phoneNumber` field for 3-legged tokens:
+    ### Error handling:
 
-    - When using a 3-legged access token, the phone number associated with the access token must be considered as the phone number for the API request. This means that the `phoneNumber` field is not required in the request, and if included it must identify the same phone number, therefore **it is recommended NOT to include it in these scenarios** to simplify the API usage and avoid additional validations.
+    - If the subject cannot be identified from the access token and the optional `phoneNumber` field is not included in the request, then the server will return an error with the `422 MISSING_PHONE_NUMBER` error code.
+    - If the subject can be identified from the access token and the optional `phoneNumber` field is also included in the request, then the server will return an error with the `422 UNNECESSARY_PHONE_NUMBER` error code. This will the case even if the same phone number is identified by these two methods, as the server is unable to make this comparison.
 
-    ### Validation mechanism:
-
-    - The server will extract the phone number identification from the access token, if available.
-    - If the API request additionally includes a `phoneNumber` field when using a 3-legged access token, the API will validate that the phone number provided matches the one associated with the access token.
-    - If there is a mismatch, the API will respond with a 403 - INVALID_TOKEN_CONTEXT error, indicating that the phone number information in the request does not match the token.
-
-    ### Error handling for unidentifiable phone number:
-
-    - If the `phoneNumber` field is not included in the request and the phone number information cannot be derived from the 3-legged access token, the server will return a 422 `UNIDENTIFIABLE_PHONE_NUMBER` error.
-
-    ### Restrictions for tokens without an associated authenticated phone number:
-
-     For scenarios which do not have a phone number associated to the token during the authentication flow, e.g. 2-legged access tokens, the `phoneNumber` field MUST be provided in the API request. This ensures that the phone number is explicit and valid for each API call made with these tokens.
 
   version: wip
   x-camara-commonalities: 0.4.0
@@ -244,11 +234,6 @@ components:
                 status: 403
                 code: PERMISSION_DENIED
                 detail: Client does not have sufficient permissions to perform this action
-            InvalidTokenContext:
-              value:
-                status: 403
-                code: INVALID_TOKEN_CONTEXT
-                detail: Phone number cannot be deducted from access token context
     Generic404:
       description: Resource Not Found
       headers:
@@ -281,10 +266,15 @@ components:
                 status: 422
                 code: NOT_SUPPORTED
                 detail: Service not supported for this phoneNumber
-            UnidentifiablePhoneMumber:
+            UnnecessaryPhoneNumber:
               value:
                 status: 422
-                code: UNIDENTIFIABLE_PHONE_NUMBER
+                code: UNNECESSARY_PHONE_NUMBER
+                detail: Service not supported for this phoneNumber
+            MissingPhoneMumber:
+              value:
+                status: 422
+                code: MISSING_PHONE_NUMBER
                 detail: The phone number cannot be identified
     Generic500:
       description: Server error
