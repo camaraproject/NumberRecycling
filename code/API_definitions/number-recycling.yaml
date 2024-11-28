@@ -201,7 +201,7 @@ components:
           example:
             status: 400
             code: INVALID_ARGUMENT
-            detail: Client specified an invalid argument, request body or query param
+            message: Request body does not comply with the schema
     Generic401:
       description: Authentication problem with the client request
       headers:
@@ -216,7 +216,7 @@ components:
           example:
             status: 401
             code: UNAUTHENTICATED
-            detail: Request not authenticated due to missing, invalid, or expired credentials
+            message: Request not authenticated due to missing, invalid, or expired credentials
     Generic403:
       description: Client does not have sufficient permission
       headers:
@@ -233,7 +233,7 @@ components:
               value:
                 status: 403
                 code: PERMISSION_DENIED
-                detail: Client does not have sufficient permissions to perform this action
+                message: Client does not have sufficient permissions to perform this action
     Generic404:
       description: Resource Not Found
       headers:
@@ -248,7 +248,7 @@ components:
           example:
             status: 404
             code: NOT_FOUND
-            detail: A specified resource is not found
+            message: A specified resource is not found
     Generic422:
       description: Unprocessable Content
       headers:
@@ -261,21 +261,21 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorInfo'
           examples:
-            NotSupported:
+            DeviceNotApplicable:
               value:
                 status: 422
-                code: NOT_SUPPORTED
-                detail: Service not supported for this phoneNumber
-            UnnecessaryPhoneNumber:
+                code: DEVICE_NOT_APPLICABLE
+                message: The service is not available for the provided phone number
+            UnnecessaryIdentifier:
               value:
                 status: 422
-                code: UNNECESSARY_PHONE_NUMBER
-                detail: Service not supported for this phoneNumber
-            MissingPhoneMumber:
+                code: UNNECESSARY_IDENTIFIER
+                message: The phone number is already identified by the access token
+            MissingIdentifier:
               value:
                 status: 422
-                code: MISSING_PHONE_NUMBER
-                detail: The phone number cannot be identified
+                code: MISSING_IDENTIFIER
+                message: The phone number cannot be identified
     Generic500:
       description: Server error
       headers:
@@ -290,7 +290,7 @@ components:
           example:
             status: 500
             code: INTERNAL
-            detail: Server error
+            message: Unknown server error. Typically a server bug.
     Generic503:
       description: Service unavailable. Typically the server is down.
       headers:
@@ -305,4 +305,4 @@ components:
           example:
             status: 503
             code: UNAVAILABLE
-            detail: Service unavailable
+            message: Service unavailable
