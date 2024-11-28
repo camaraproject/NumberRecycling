@@ -164,7 +164,7 @@ components:
       required:
         - status
         - code
-        - detail
+        - message
       properties:
         status:
           type: integer
@@ -172,9 +172,9 @@ components:
         code:
           type: string
           description: Code given to this error
-        detail:
+        message:
           type: string
-          description: Detailed error description
+          description: A human readable description of what the event represent
   responses:
     Generic200:
       description: OK
