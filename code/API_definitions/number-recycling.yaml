@@ -294,6 +294,7 @@ components:
             type: string
       content:
         application/json:
+          schema:
             allOf:
               - $ref: "#/components/schemas/ErrorInfo"
               - type: object
