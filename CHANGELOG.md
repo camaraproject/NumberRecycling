@@ -10,7 +10,7 @@
 
 **This is the first alpha version of the KYC APIs.** 
 
-- API [definition](https://github.com/camaraproject/NumberRecycling/tree/main/code/API_definitions)
+- [number-recycling v0.1.0-alpha.1](https://github.com/camaraproject/NumberRecycling/blob/r1.1/code/API_definitions/number-recycling.yaml)
 
 * Note: API documentation is embedded in the YAML files.
 
