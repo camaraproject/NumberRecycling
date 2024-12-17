@@ -73,7 +73,7 @@ externalDocs:
   description: Product documentation at Camara
   url: https://github.com/camaraproject/NumberRecycling
 servers:
-  - url: '{apiRoot}/number-recycling/0.1.0-alpha.1'
+  - url: '{apiRoot}/number-recycling/0.1alpha1'
     variables:
       apiRoot:
         default: http://localhost:9091
