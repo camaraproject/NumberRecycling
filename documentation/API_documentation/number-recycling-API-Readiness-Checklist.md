@@ -14,5 +14,5 @@ Checklist for number-recycling-in 0.1.0 in SPRING25
 |  8 | Enhanced API test cases & documentation      |   O   |         O         |    O    |    M   |  N   |      |
 |  9 | Test result statement                        |   O   |         O         |    O    |    M   |  N   |      |
 | 10 | API release numbering convention applied     |   M   |         M         |    M    |    M   |  Y   |      |
-| 11 | Change log updated                           |   M   |         M         |    M    |    M   |  N   | to be provided |
+| 11 | Change log updated                           |   M   |         M         |    M    |    M   |  Y   | [link](/CHANGELOG.md) |
 | 12 | Previous public release was certified        |   O   |         O         |    O    |    M   |  N   |      | 
