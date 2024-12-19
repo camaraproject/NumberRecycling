@@ -280,6 +280,7 @@ components:
                       - PERMISSION_DENIED
           examples:
             PermissionDenied:
+              description: Permission denided. OAuth2 token access not have the required scope or when the user fails operational security
               value:
                 status: 403
                 code: PERMISSION_DENIED
