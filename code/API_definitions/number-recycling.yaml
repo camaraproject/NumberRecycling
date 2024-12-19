@@ -372,7 +372,7 @@ components:
                       - QUOTA_EXCEEDED
                       - TOO_MANY_REQUESTS
           examples:
-            GENERIC_429_QUOTA_EXCEEDED:
+            QuotaExceeded:
               description: Request is rejected due to exceeding a business quota limit
               value:
                 status: 429
