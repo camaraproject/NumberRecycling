@@ -344,6 +344,7 @@ components:
                 code: SERVICE_NOT_APPLICABLE
                 message: The service is not available for the provided phone number
             UnnecessaryIdentifier:
+              description: An explicit identifier is provided when a phone number has already been identified from the access token
               value:
                 status: 422
                 code: UNNECESSARY_IDENTIFIER
