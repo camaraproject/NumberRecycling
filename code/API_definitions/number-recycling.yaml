@@ -210,7 +210,7 @@ components:
                       - INVALID_ARGUMENT
                       - OUT_OF_RANGE
           examples:
-            GENERIC_400_INVALID_ARGUMENT:
+            InvalidArgument:
               description: Invalid Argument. Generic Syntax Exception
               value:
                 status: 400
