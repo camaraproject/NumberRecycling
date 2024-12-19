@@ -378,7 +378,7 @@ components:
                 status: 429
                 code: QUOTA_EXCEEDED
                 message: Either out of resource quota or reaching rate limiting.
-            GENERIC_429_TOO_MANY_REQUESTS:
+            TooManyRequestes:
               description: API Server request limit is overpassed
               value:
                 status: 429
