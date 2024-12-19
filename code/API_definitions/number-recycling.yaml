@@ -338,6 +338,7 @@ components:
                       - UNNECESSARY_IDENTIFIER
           examples:
             DeviceNotApplicable:
+              description: Service not applicable for the provided phone number
               value:
                 status: 422
                 code: SERVICE_NOT_APPLICABLE
