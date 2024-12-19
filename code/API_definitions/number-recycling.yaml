@@ -432,7 +432,7 @@ components:
                     enum:
                       - BAD_GATEWAY
           examples:
-            GENERIC_502_BAD_GATEWAY:
+            BadGateway:
               description: Internal routing problem in the Server side that blocks to manage the service properly
               value:
                 status: 502
