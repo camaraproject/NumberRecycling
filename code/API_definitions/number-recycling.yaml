@@ -406,7 +406,7 @@ components:
                     enum:
                       - INTERNAL
           examples:
-            GENERIC_500_INTERNAL:
+            Internal:
               description: Problem in Server side. Regular Server Exception
               value:
                 status: 500
