@@ -251,7 +251,7 @@ components:
                 status: 401
                 code: UNAUTHENTICATED
                 message: Request not authenticated due to missing, invalid, or expired credentials.
-            AuthenticationRequired:
+            Authentication Required:
               description: New authentication is needed, authentication is no longer valid
               value:
                 status: 401
@@ -279,7 +279,7 @@ components:
                     enum:
                       - PERMISSION_DENIED
           examples:
-            PermissionDenied:
+            Permission Denied:
               description: Permission denided. OAuth2 token access not have the required scope or when the user fails operational security
               value:
                 status: 403
@@ -307,8 +307,8 @@ components:
                     enum:
                       - IDENTIFIER_NOT_FOUND
           examples:
-            GENERIC_404_IDENTIFIER_NOT_FOUND:
-              description: Provided phone number is not one used by network operator
+            Phone Number Used By Different Network Operator:
+              description: Provided phone number is used by a different network operator
               value:
                 status: 404
                 code: IDENTIFIER_NOT_FOUND
@@ -337,19 +337,19 @@ components:
                       - MISSING_IDENTIFIER
                       - UNNECESSARY_IDENTIFIER
           examples:
-            DeviceNotApplicable:
+            Device Not Applicable:
               description: Service not applicable for the provided phone number
               value:
                 status: 422
                 code: SERVICE_NOT_APPLICABLE
                 message: The service is not available for the provided phone number
-            UnnecessaryIdentifier:
+            Unnecessary Identifier:
               description: An explicit identifier is provided when a phone number has already been identified from the access token
               value:
                 status: 422
                 code: UNNECESSARY_IDENTIFIER
                 message: The phone number is already identified by the access token
-            MissingIdentifier:
+            Missing Identifier:
               value:
                 status: 422
                 code: MISSING_IDENTIFIER
@@ -375,13 +375,13 @@ components:
                       - QUOTA_EXCEEDED
                       - TOO_MANY_REQUESTS
           examples:
-            QuotaExceeded:
+            Quota Exceeded:
               description: Request is rejected due to exceeding a business quota limit
               value:
                 status: 429
                 code: QUOTA_EXCEEDED
                 message: Either out of resource quota or reaching rate limiting.
-            TooManyRequestes:
+            Too Many Requestes:
               description: API Server request limit is overpassed
               value:
                 status: 429
@@ -435,7 +435,7 @@ components:
                     enum:
                       - BAD_GATEWAY
           examples:
-            BadGateway:
+            Bad Gateway:
               description: Internal routing problem in the Server side that blocks to manage the service properly
               value:
                 status: 502
@@ -461,7 +461,7 @@ components:
                     enum:
                       - UNAVAILABLE
           examples:
-            Unavailable:
+            Service Unavailable:
               description: Service is not available. Temporary situation usually related to maintenance process in the server side
               value:
                 status: 503
