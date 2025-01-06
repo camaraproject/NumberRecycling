@@ -7,19 +7,23 @@
 <a href="https://github.com/camaraproject/NumberRecycling/releases/latest" title="Latest Release"><img src="https://img.shields.io/github/release/camaraproject/NumberRecycling?style=plastic"></a>
 
 # NumberRecycling
-Repository to describe, develop, document, and test the NumberRecycling API within the 
+Repository to describe, develop, document, and test the NumberRecycling API within the KnowYourCustomer (KYC) API family.
 
 ## Scope
 
 * Service API “NumberRecycling” (see [APIBacklog.md](https://github.com/camaraproject/APIBacklog/blob/main/documentation/APIbacklog.md))
 * The API provides the customer with the ability to:  
-  * To know whether a phone number is linked to a subscriber, the Number Recycling API can be used to check whether the subscriber of the phone number has changed
+  * Check whether the subscriber of the phone number has changed. A common scenario is when Application service provider (ASP) wants to check whether there has been a change in the user associated with the phone number after the specified date. This allows the ASP to ensure that a phone number is correctly linked to an user and prevent the mis-delivery of SMS messages.
 * Describe, develop, document, and test the API
 * Started: August 2024
 
 ## Release Information
 
-The repository has no (pre)releases yet, work in progress is within the main branch.
+* Note: Please be aware that the project will have updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until a new release is created. For example, changes may be reverted before a release is created. For best results, use the latest available release.
+
+* **The latest pre-release of CAMARA Number Recycling is [r1.1](https://github.com/camaraproject/NumberRecycling/tree/r1.1)**. The Release Tag is [r1.1](https://github.com/camaraproject/NumberRecycling/releases/tag/r1.1).
+  - Contains the following API definitions **with inline documentation**:
+    - [YAML spec file](https://github.com/camaraproject/NumberRecycling/blob/r1.1/code/API_definitions/number-recycling.yaml) | [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.1/code/API_definitions/number-recycling.yaml&nocors) | [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.1/code/API_definitions/number-recycling.yaml&nocors)
 
 ## Contributing
 * Meetings of KnowYourCustomer Sub Project are held virtually 
