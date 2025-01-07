@@ -7,7 +7,7 @@
 <a href="https://github.com/camaraproject/NumberRecycling/releases/latest" title="Latest Release"><img src="https://img.shields.io/github/release/camaraproject/NumberRecycling?style=plastic"></a>
 
 # NumberRecycling
-Repository to describe, develop, document, and test the NumberRecycling API within the KnowYourCustomer (KYC) API family.
+API Repository to describe, develop, document, and test the NumberRecycling API within the KnowYourCustomer (KYC) API Sub Project.
 
 ## Scope
 
