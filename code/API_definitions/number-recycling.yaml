@@ -280,7 +280,7 @@ components:
                       - PERMISSION_DENIED
           examples:
             Permission Denied:
-              description: Permission denided. OAuth2 token access not have the required scope or when the user fails operational security
+              description: Permission denied. OAuth2 token access not have the required scope or when the user fails operational security
               value:
                 status: 403
                 code: PERMISSION_DENIED
@@ -381,7 +381,7 @@ components:
                 status: 429
                 code: QUOTA_EXCEEDED
                 message: Either out of resource quota or reaching rate limiting.
-            Too Many Requestes:
+            Too Many Requests:
               description: API Server request limit is overpassed
               value:
                 status: 429
