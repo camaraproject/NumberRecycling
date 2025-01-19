@@ -8,7 +8,7 @@
 
 # r1.1
 
-**This is the first alpha version of the KYC APIs.** 
+**This is the first alpha version of the Number Recycling API.** 
 
 - [number-recycling v0.1.0-alpha.1](https://github.com/camaraproject/NumberRecycling/blob/r1.1/code/API_definitions/number-recycling.yaml)
 
