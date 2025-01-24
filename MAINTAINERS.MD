@@ -1,7 +1,7 @@
 | Org                    | Name                                      | GitHub Username        |
 | -----------------------| ------------------------------------------| -----------------------|
 | Vodafone | Luis Lopez | @luislopezcorpas  |
-| KDDI | Masaharu Hattori | @Masa810  |
+| KDDI | Masaharu Hattori | @Masa8106  |
 | KDDI | Kenichi Yamamoto | @yamamoto0104  |
 | DT | Georgios Papadopoulos | @grgpapadopoulos |
 | DT | Noel Wirzius | @NoelWirzius |
