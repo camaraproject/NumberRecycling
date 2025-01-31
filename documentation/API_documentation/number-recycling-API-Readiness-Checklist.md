@@ -2,11 +2,11 @@
 
 Checklist for number-recycling v0.1.0-rc.1 in r1.1
 
-| Nr | API release assets  | alpha | release-candidate |  initial<br>public | stable<br> public | Status | Comments |
+| Nr | API release assets  | alpha | release-candidate |  initial<br>public | stable<br> public | Status | Reference information |
 |----|----------------------------------------------|:-----:|:-----------------:|:-------:|:------:|:----:|:----:|
 |  1 | API definition                               |   M   |         M         |    M    |    M   |  Y   |  [link](/code/API_definitions/number-recycling.yaml) |
-|  2 | Design guidelines from Commonalities applied |   O   |         M         |    M    |    M   |  Y   |      |
-|  3 | Guidelines from ICM applied                  |   O   |         M         |    M    |    M   |  Y   |      |
+|  2 | Design guidelines from Commonalities applied |   O   |         M         |    M    |    M   |  Y   | r2.2 |
+|  3 | Guidelines from ICM applied                  |   O   |         M         |    M    |    M   |  Y   | r2.2 |
 |  4 | API versioning convention applied            |   M   |         M         |    M    |    M   |  Y   |      |
 |  5 | API documentation                            |   M   |         M         |    M    |    M   |  Y   | contained in API definition |
 |  6 | User stories                                 |   O   |         O         |    O    |    M   |  Y   | [link](/documentation/API_documentation/Number_Recycling_User_Story.md) |
