@@ -26,7 +26,7 @@ The API definition(s) are based on
 
 ## number-recycling v0.1.0-rc1
 
-**number-recycling v0.1.0-rc1 is the first release-candidate version for v0.1.0 of the Number-Recycling API.**
+**number-recycling v0.1.0-rc.1 is the first release-candidate version for v0.1.0 of the Number-Recycling API.**
 
 - number-recycling v0.1.0-rc1 API definition **with inline documentation**:
   - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.1/code/API_definitions/number-recycling.yaml&nocors)
