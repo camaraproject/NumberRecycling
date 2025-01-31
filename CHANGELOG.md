@@ -24,7 +24,7 @@ The API definition(s) are based on
 * Commonalities r2.2
 * Identity and Consent Management r2.2
 
-## number-recycling v0.1.0-rc1
+## number-recycling v0.1.0-rc.1
 
 **number-recycling v0.1.0-rc.1 is the first release-candidate version for v0.1.0 of the Number-Recycling API.**
 
