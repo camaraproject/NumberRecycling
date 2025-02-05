@@ -39,7 +39,7 @@ Feature: CAMARA Number Recycling API, 0.1.0-rc.1 - Operation number-recycling
 
   # Generic 400 errors
 
-  @Number_Recycling_400.01_invalid_argument
+  @Number_Recycling_400.01_invalid_specifiedDate
   Scenario Outline: Error 400 when specified date does not comply with the RFC 3339 calendar date format (YYYY-MM-DD).
     Given a valid testing phone number supported by the service, identified by the access token or provided in the request body
     And the request body is set to a valid parameter combination with property "$.specifiedDate" set to "<invalid_specifiedDate>"
