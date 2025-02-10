@@ -14,7 +14,7 @@ Feature: CAMARA Number Recycling API, 0.1.0-rc.1 - Operation number-recycling
 
   # Happy path scenarios for number-recycling operation
 
-  @Number_Recycling_01_success_request_response_when_phoneNumChanged_is_false
+  @Number_Recycling_01_success_request_response_when_phoneNumberRecycled_is_false
     Scenario: Validate successful response when the phone number is linked to User
     Given a valid phone number supported by the service, identified by the access token or provided in the request body
     And the request body property "$.specifiedDate" is set to a date on which the user signed contracts with Service Provider.
@@ -23,9 +23,9 @@ Feature: CAMARA Number Recycling API, 0.1.0-rc.1 - Operation number-recycling
     And the response header "Content-Type" is "application/json"
     And the response header "x-correlator" has same value as the request header "x-correlator"
     And the response body complies with the OAS schema at "/components/schemas/CheckNumRecyclingInfo"
-    And the value of response property "$.phoneNumChanged" is false
+    And the value of response property "$.phoneNumberRecycled" is false
 
-  @Number_Recycling_02_success_request_response_when_phoneNumChanged_is_true
+  @Number_Recycling_02_success_request_response_when_phoneNumberRecycled_is_true
   Scenario: Validate successful response when User A canceled the phone number and User B is using the phone number.
     Given a valid phone number supported by the service,  identified by the access token or provided in the request body
     And the request body property "$.phoneNumber" is set to a valid phone number which was cancelled by the User A and is using User B.
@@ -35,7 +35,7 @@ Feature: CAMARA Number Recycling API, 0.1.0-rc.1 - Operation number-recycling
     And the response header "Content-Type" is "application/json"
     And the response header "x-correlator" has same value as the request header "x-correlator"
     And the response body complies with the OAS schema at "/components/schemas/CheckNumRecyclingInfo"
-    And the value of response property "$.phoneNumChanged" is true
+    And the value of response property "$.phoneNumberRecycled" is true
 
   # Generic 400 errors
 
