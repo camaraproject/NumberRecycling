@@ -21,7 +21,7 @@ API Repository to describe, develop, document, and test the NumberRecycling API 
 
 * Note: Please be aware that the project will have updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until a new release is created. For example, changes may be reverted before a release is created. For best results, use the latest available release.
 
-* **The latest pre-release of CAMARA Number Recycling is [r1.1](https://github.com/camaraproject/NumberRecycling/tree/r1.1)**. The Release Tag is [r1.1](https://github.com/camaraproject/NumberRecycling/releases/tag/r1.1).
+* **The latest pre-release of CAMARA Number Recycling is [r1.1](https://github.com/camaraproject/NumberRecycling/releases/tag/r1.1)**. The Release Tag is [r1.1](https://github.com/camaraproject/NumberRecycling/releases/tag/r1.1).
   - Contains the following API definitions **with inline documentation**:
     - [YAML spec file](https://github.com/camaraproject/NumberRecycling/blob/r1.1/code/API_definitions/number-recycling.yaml) | [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.1/code/API_definitions/number-recycling.yaml&nocors) | [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.1/code/API_definitions/number-recycling.yaml&nocors)
 
