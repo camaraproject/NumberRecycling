@@ -28,7 +28,7 @@ Feature: CAMARA Number Recycling API, 0.1.0-rc.1 - Operation number-recycling
   @Number_Recycling_02_success_request_response_when_phoneNumberRecycled_is_true
   Scenario: Validate successful response when User A canceled the phone number and User B is using the phone number.
     Given a valid phone number supported by the service,  identified by the access token or provided in the request body
-    And the request body property "$.phoneNumber" is set to a valid phone number which was cancelled by the User A and is using User B.
+    And the request body property "$.phoneNumber" is set to a valid phone number which was cancelled by the User A and is used by User B.
     And the request body property "$.specifiedDate" is set to a date on which the User A signed contracts with Service Provider.
     When the HTTP "POST" request is sent
     Then the response status code is 200
