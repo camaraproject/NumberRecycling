@@ -2,7 +2,7 @@ Feature: CAMARA Number Recycling API, v0.1.0 - Operation number-recycling
   # Environment variables:
   # * api_root: API root of the server URL
   #
-  # References to OAS spec schemas refer to schemas specifies in number-recycling.yaml, version 0.1.0
+  # References to OAS spec schemas refer to schemas specifies in number-recycling.yaml
 
   Background: Common checkNumberRecycling setup
       Given an environment at "apiRoot"
