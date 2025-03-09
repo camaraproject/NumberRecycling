@@ -34,7 +34,7 @@ The API definition(s) are based on
   - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.2/code/API_definitions/number-recycling.yaml&nocors)
   - OpenAPI [YAML spec file](https://github.com/camaraproject/NumberRecycling/blob/r1.2/code/API_definitions/number-recycling.yaml)
 
-**Full Changelog**: https://github.com/camaraproject/NumberRecycling/compare/r1.1...r1.2
+**Full Changelog**: https://github.com/camaraproject/NumberRecycling/commits/r1.2
 
 # r1.1
 
