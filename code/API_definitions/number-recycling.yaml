@@ -127,11 +127,7 @@ components:
         example: "b4333c46-49c0-4f62-80d7-f0ef930f1c46"
   headers:
     x-correlator:
-      description: Correlation id for the different services
-      schema:
-        type: string
-        pattern: "^[a-zA-Z0-9-]{0,55}$"
-        example: "b4333c46-49c0-4f62-80d7-f0ef930f1c46"
+      $ref: '#/components/parameters/x-correlator'
   schemas:
     CreateCheckNumRecycling:
       type: object
@@ -180,9 +176,7 @@ components:
       description: OK
       headers:
         x-correlator:
-          description: Correlation id for the different services
-          schema:
-            type: string
+          $ref: '#/components/parameters/x-correlator'
       content:
         application/json:
           schema:
@@ -192,9 +186,7 @@ components:
       description: Problem with the client request
       headers:
         x-correlator:
-          description: Correlation id for the different services
-          schema:
-            type: string
+          $ref: '#/components/parameters/x-correlator'
       content:
         application/json:
           schema:
@@ -227,9 +219,7 @@ components:
       description: Authentication problem with the client request
       headers:
         x-correlator:
-          description: Correlation id for the different services
-          schema:
-            type: string
+          $ref: '#/components/parameters/x-correlator'
       content:
         application/json:
           schema:
@@ -262,9 +252,7 @@ components:
       description: Client does not have sufficient permission
       headers:
         x-correlator:
-          description: Correlation id for the different services
-          schema:
-            type: string
+          $ref: '#/components/parameters/x-correlator'
       content:
         application/json:
           schema:
@@ -290,9 +278,7 @@ components:
       description: Resource Not Found
       headers:
         x-correlator:
-          description: Correlation id for the different services
-          schema:
-            type: string
+          $ref: '#/components/parameters/x-correlator'
       content:
         application/json:
           schema:
@@ -318,9 +304,7 @@ components:
       description: Unprocessable Content
       headers:
         x-correlator:
-          description: Correlation id for the different services
-          schema:
-            type: string
+          $ref: '#/components/parameters/x-correlator'
       content:
         application/json:
           schema:
