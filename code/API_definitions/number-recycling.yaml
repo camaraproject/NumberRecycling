@@ -89,7 +89,7 @@ paths:
       description: Check whether the subscriber of the phone number has changed.
       operationId: checkNumberRecycling
       parameters:
-        - $ref: '#/components/headers/x-correlator'
+        - $ref: '#/components/parameters/x-correlator'
       requestBody:
         description: |
           Check whether the subscriber of the phone number has changed.
