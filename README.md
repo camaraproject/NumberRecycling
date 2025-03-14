@@ -5,9 +5,12 @@
 <a href="https://github.com/camaraproject/NumberRecycling" title="Repo Size"><img src="https://img.shields.io/github/repo-size/camaraproject/NumberRecycling?style=plastic"></a>
 <a href="https://github.com/camaraproject/NumberRecycling/blob/main/LICENSE" title="License"><img src="https://img.shields.io/badge/License-Apache%202.0-green.svg?style=plastic"></a>
 <a href="https://github.com/camaraproject/NumberRecycling/releases/latest" title="Latest Release"><img src="https://img.shields.io/github/release/camaraproject/NumberRecycling?style=plastic"></a>
+<a href="https://github.com/camaraproject/Governance/blob/main/ProjectStructureAndRoles.md" title="Sandbox API Repository"><img src="https://img.shields.io/badge/Sandbox%20API%20Repository-yellow?style=plastic"></a>
 
 # NumberRecycling
-API Repository to describe, develop, document, and test the NumberRecycling API within the KnowYourCustomer (KYC) API Sub Project.
+Sandbox API Repository to describe, develop, document, and test the NumberRecycling API within the [Know Your Customer (KYC)](https://lf-camaraproject.atlassian.net/wiki/x/I4DGB) Sub Project.
+* API Repository wiki page: https://lf-camaraproject.atlassian.net/wiki/x/ZIDGB
+* Sub Project home page: https://lf-camaraproject.atlassian.net/wiki/x/I4DGB
 
 ## Scope
 
@@ -21,9 +24,9 @@ API Repository to describe, develop, document, and test the NumberRecycling API 
 
 * Note: Please be aware that the project will have updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until a new release is created. For example, changes may be reverted before a release is created. For best results, use the latest available release.
 
-* **The latest pre-release of CAMARA Number Recycling is [r1.1](https://github.com/camaraproject/NumberRecycling/releases/tag/r1.1)**. The Release Tag is [r1.1](https://github.com/camaraproject/NumberRecycling/releases/tag/r1.1).
+* **The first public release of CAMARA Number Recycling is [r1.2](https://github.com/camaraproject/NumberRecycling/releases/tag/r1.2)**. The Release Tag is [r1.2](https://github.com/camaraproject/NumberRecycling/releases/tag/r1.2).
   - Contains the following API definitions **with inline documentation**:
-    - [YAML spec file](https://github.com/camaraproject/NumberRecycling/blob/r1.1/code/API_definitions/number-recycling.yaml) | [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.1/code/API_definitions/number-recycling.yaml&nocors) | [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.1/code/API_definitions/number-recycling.yaml&nocors)
+    - [YAML spec file](https://github.com/camaraproject/NumberRecycling/blob/r1.2/code/API_definitions/number-recycling.yaml) | [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.2/code/API_definitions/number-recycling.yaml&nocors) | [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.2/code/API_definitions/number-recycling.yaml&nocors)
 
 ## Contributing
 * Meetings of KnowYourCustomer Sub Project are held virtually 
