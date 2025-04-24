@@ -20,15 +20,15 @@ The below sections record the changes for each API version in each release as fo
 ## Release Notes
 
 This release contains the definition and documentation of
-* number-recycling v0.1.0
+* number-recycling v0.1.1
 
 The API definition(s) are based on
 * Commonalities v0.5.0
 * Identity and Consent Management v0.3.0
 
-## number-recycling v0.1.0
+## number-recycling v0.1.1
 
-**number-recycling v0.1.0 is the first public release version of the Number-Recycling API.**
+**number-recycling v0.1.1 is the second public release version of the Number-Recycling API.**
 
 - number-recycling v0.1.0 API definition **with inline documentation**:
   - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.3/code/API_definitions/number-recycling.yaml&nocors)
