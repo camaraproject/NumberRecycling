@@ -338,6 +338,7 @@ components:
                 code: UNNECESSARY_IDENTIFIER
                 message: The phone number is already identified by the access token
             Missing Identifier:
+              description: An identifier is not included in the request and the phone number identification cannot be derived from the 3-legged access token
               value:
                 status: 422
                 code: MISSING_IDENTIFIER
