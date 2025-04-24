@@ -42,7 +42,7 @@ The API definition(s) are based on
 * N/A
 
 ### Fixed
-* Fix the Missing description field in 422 Missing IdentifierTypo in https://github.com/camaraproject/NumberRecycling/pull/41
+* Fix the Missing description field in 422 Missing Identifier in https://github.com/camaraproject/NumberRecycling/pull/44
 
 ### Removed
 * N/A
