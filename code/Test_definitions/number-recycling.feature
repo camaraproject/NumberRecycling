@@ -1,4 +1,4 @@
-Feature: CAMARA Number Recycling API, v0.1.0 - Operation number-recycling
+Feature: CAMARA Number Recycling API, v0.1.1 - Operation number-recycling
   # Environment variables:
   # * api_root: API root of the server URL
   #

@@ -2,6 +2,7 @@
 
 ## Table of Contents
 
+- [r1.3](#r13)
 - [r1.2](#r12)
 - [r1.1](#r11)
 
@@ -13,6 +14,43 @@ The below sections record the changes for each API version in each release as fo
 * for the first release-candidate, all changes since the last public release
 * for subsequent release-candidate(s), only the delta to the previous release-candidate
 * for a public release, the consolidated changes since the previous public release
+
+# r1.3
+
+## Release Notes
+
+This release contains the definition and documentation of
+* number-recycling v0.1.1
+
+The API definition(s) are based on
+* Commonalities v0.5.0
+* Identity and Consent Management v0.3.0
+
+## number-recycling v0.1.1
+
+**number-recycling v0.1.1 is the second public release version of the Number-Recycling API.**
+
+- number-recycling v0.1.1 API definition **with inline documentation**:
+  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.3/code/API_definitions/number-recycling.yaml&nocors)
+  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.3/code/API_definitions/number-recycling.yaml&nocors)
+  - OpenAPI [YAML spec file](https://github.com/camaraproject/NumberRecycling/blob/r1.3/code/API_definitions/number-recycling.yaml)
+
+### Added
+* N/A
+
+### Changed
+* N/A
+
+### Fixed
+* Fix the Missing description field in 422 Missing Identifier in https://github.com/camaraproject/NumberRecycling/pull/44
+
+### Removed
+* N/A
+
+## New Contributors
+* N/A
+
+**Full Changelog**: https://github.com/camaraproject/NumberRecycling/commits/r1.3
 
 # r1.2
 
