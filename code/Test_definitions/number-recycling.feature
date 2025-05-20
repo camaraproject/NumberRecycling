@@ -48,15 +48,17 @@ Feature: CAMARA Number Recycling API, v0.1.1 - Operation number-recycling
     And the response property "$.code" is "INVALID_ARGUMENT"
     And the response property "$.message" contains a user friendly text
     And the response property "$.status" is 400
-@Number_Recycling_400.02_phone_number_not_schema_compliant
-    Scenario: Phone number value does not comply with the schema
-        Given the header "Authorization" is set to a valid access token which does not identify a single phone number
-        And the request body property "$.phoneNumber" does not comply with the OAS schema at "/components/schemas/PhoneNumber"
-        When the HTTP "POST" request is sent
-        Then the response status code is 400
-        And the response property "$.status" is 400
-        And the response property "$.code" is "INVALID_ARGUMENT"
-        And the response property "$.message" contains a user friendly text
+    
+  @Number_Recycling_400.02_phone_number_not_schema_compliant
+  Scenario: Phone number value does not comply with the schema
+    Given the header "Authorization" is set to a valid access token which does not identify a single phone number
+    And the request body property "$.phoneNumber" does not comply with the OAS schema at "/components/schemas/PhoneNumber"
+    When the HTTP "POST" request is sent
+    Then the response status code is 400
+    And the response property "$.status" is 400
+    And the response property "$.code" is "INVALID_ARGUMENT"
+    And the response property "$.message" contains a user friendly text
+
   # Generic 401 errors
 
   @Number_Recycling_401.01_expired_access_token
@@ -64,7 +66,7 @@ Feature: CAMARA Number Recycling API, v0.1.1 - Operation number-recycling
     Given the header "Authorization" is set to an expired access token
     When the HTTP "POST" request is sent
     Then the response status code is 401
-    And the response property "$.code" is "AUTHENTICATION_REQUIRED"
+    And the response property "$.code" is "UNAUTHENTICATED"
     And the response property "$.message" contains a user friendly text
     And the response property "$.status" is 401
 
