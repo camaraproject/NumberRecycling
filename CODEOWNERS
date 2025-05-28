@@ -12,3 +12,7 @@
 /CODEOWNERS @camaraproject/admins
 /MAINTAINERS.MD @camaraproject/admins
 
+# The following lines ensure that the release-management_reviewers team will automatically added as reviewers
+# if a pull requests is changing the CHANGELOG file (aka "release PR") and that such PRs can only be merged with an approval from a team member.
+/CHANGELOG.MD @camaraproject/release-management_reviewers
+/CHANGELOG.md @camaraproject/release-management_reviewers
