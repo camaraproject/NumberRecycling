@@ -8,9 +8,10 @@
 <a href="https://github.com/camaraproject/Governance/blob/main/ProjectStructureAndRoles.md" title="Sandbox API Repository"><img src="https://img.shields.io/badge/Sandbox%20API%20Repository-yellow?style=plastic"></a>
 
 # NumberRecycling
+
 Sandbox API Repository to describe, develop, document, and test the NumberRecycling API within the [Know Your Customer (KYC)](https://lf-camaraproject.atlassian.net/wiki/x/I4DGB) Sub Project.
-* API Repository wiki page: https://lf-camaraproject.atlassian.net/wiki/x/ZIDGB
-* Sub Project home page: https://lf-camaraproject.atlassian.net/wiki/x/I4DGB
+
+* API Repository [wiki page](https://lf-camaraproject.atlassian.net/wiki/x/ggCaBQ)
 
 ## Scope
 
