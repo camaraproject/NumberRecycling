@@ -37,10 +37,10 @@ The API definition(s) are based on
   - OpenAPI [YAML spec file](https://github.com/camaraproject/NumberRecycling/blob/r2.1/code/API_definitions/number-recycling.yaml)
 
 ### Added
-* N/A
+* Add text on undocumented errors to OAS definition in https://github.com/camaraproject/NumberRecycling/pull/56
 
 ### Changed
-* N/A
+* Update x-correlator pattern in https://github.com/camaraproject/NumberRecycling/pull/59
 
 ### Fixed
 * N/A
