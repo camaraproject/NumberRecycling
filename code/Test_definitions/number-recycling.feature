@@ -6,7 +6,7 @@ Feature: CAMARA Number Recycling API, v0.2.0-rc.1 - Operation number-recycling
 
   Background: Common checkNumberRecycling setup
       Given an environment at "apiRoot"
-      And the resource "/number-recycling/v0.2.0-rc.1/check"
+      And the resource "/number-recycling/v0.2rc1/check"
       And the header "Content-Type" is set to "application/json"
       And the header "Authorization" is set to a valid access token
       And the header "x-correlator" is set to a UUID value
