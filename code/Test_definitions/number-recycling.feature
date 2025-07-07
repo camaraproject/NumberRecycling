@@ -9,7 +9,7 @@ Feature: CAMARA Number Recycling API, v0.2.0-rc.1 - Operation number-recycling
       And the resource "/number-recycling/v0.2rc1/check"
       And the header "Content-Type" is set to "application/json"
       And the header "Authorization" is set to a valid access token
-      And the header "x-correlator" is set to a UUID value
+      And the header "x-correlator" complies with the schema at "#/components/schemas/XCorrelator
       And the request body is set by default to a request body compliant with the schema
 
   # Happy path scenarios for number-recycling operation
