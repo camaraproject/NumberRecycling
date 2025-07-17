@@ -6,7 +6,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation number-recycling
   # * A mobile line identified by its phone number "phoneNumber" linked to a user
   # * A mobile line identified by its phone number "phoneNumber" which was cancelled by a user and is now used by another user
   #
-  # References to OAS spec schemas refer to schemas specifies in number-recycling.yaml
+  # References to OAS spec schemas refer to schemas specified in number-recycling.yaml
 
   Background: Common checkNumberRecycling setup
       Given an environment at "apiRoot"
