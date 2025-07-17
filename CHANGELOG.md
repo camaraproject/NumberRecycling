@@ -41,6 +41,7 @@ The API definition(s) are based on
 
 ### Changed
 * Update x-correlator pattern in https://github.com/camaraproject/NumberRecycling/pull/59
+* Update test plan and align with Commonalities guidelines in https://github.com/camaraproject/NumberRecycling/pull/60
 
 ### Fixed
 * N/A
