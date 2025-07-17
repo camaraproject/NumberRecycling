@@ -51,7 +51,7 @@ The API definition(s) are based on
 ## New Contributors
 * N/A
 
-**Full Changelog**: https://github.com/camaraproject/NumberRecycling/commits/r2.1
+**Full Changelog**: https://github.com/camaraproject/NumberRecycling/compare/r1.3...r2.1
 
 # r1.3
 
