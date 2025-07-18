@@ -81,7 +81,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation number-recycling
     And the response property "$.code" is "OUT_OF_RANGE"
     And the response property "$.message" contains a user friendly text
 
-  @heckNumberRecycling_400.5_invalid_argument
+  @checkNumberRecycling_400.5_invalid_argument
   Scenario: Invalid Argument. Generic Syntax Exception
     Given the request body is set to any value which is not compliant with the OAS schema at "/components/schemas/CreateCheckNumRecycling"
     When the HTTP "POST" request is sent
