@@ -73,7 +73,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation number-recycling
     And the response property "$.message" contains a user friendly text
 
   @checkNumberRecycling_400.4_out_of_range
-  Scenario: Error when tenureDate is out of range
+  Scenario: Error when specifiedDate is out of range
     Given the request body property "$.specifiedDate" is set to a value in the future
     When the HTTP "POST" request is sent
     Then the response status code is 400
