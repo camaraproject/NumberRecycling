@@ -1,4 +1,4 @@
-Feature: CAMARA Number Recycling API, v0.2.0-rc.1 - Operation number-recycling
+Feature: CAMARA Number Recycling API, v0.2.0-rc.1 - Operation checkNumberRecycling
   # Environment variables:
   # * api_root: API root of the server URL
   #
@@ -43,7 +43,7 @@ Feature: CAMARA Number Recycling API, v0.2.0-rc.1 - Operation number-recycling
   Scenario Outline: Error 400 when specified date does not comply with the RFC 3339 calendar date format (YYYY-MM-DD).
     Given a valid testing phone number supported by the service, identified by the access token or provided in the request body
     And the request body is set to a valid parameter combination with property "$.specifiedDate" set to "<invalid_specifiedDate>"
-    When the request "checkNumberRecycling" is sent
+    When the HTTP "POST" request is sent
     Then the response status code is 400
     And the response property "$.code" is "INVALID_ARGUMENT"
     And the response property "$.message" contains a user friendly text
