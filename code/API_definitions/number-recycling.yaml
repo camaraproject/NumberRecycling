@@ -68,17 +68,17 @@ info:
     Please refer to the `CAMARA_common.yaml` of the Commonalities Release associated to this API version for a complete list of error responses. The applicable Commonalities Release can be identified in the `API Readiness Checklist` document associated to this API version.
     As a specific rule, error `501 - NOT_IMPLEMENTED` can be only a possible error response if it is explicitly documented in the API.
 
-  version: wip
-  x-camara-commonalities: 0.5
+  version: 0.2.0-rc.1
+  x-camara-commonalities: 0.6
 
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
 externalDocs:
-  description: Product documentation at Camara
+  description: Product documentation at CAMARA
   url: https://github.com/camaraproject/NumberRecycling
 servers:
-  - url: '{apiRoot}/number-recycling/vwip'
+  - url: '{apiRoot}/number-recycling/v0.2rc1'
     variables:
       apiRoot:
         default: http://localhost:9091
