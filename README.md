@@ -28,7 +28,7 @@ Sandbox API Repository to describe, develop, document, and test the NumberRecycl
 * **The latest public release of CAMARA Number Recycling is [r2.2](https://github.com/camaraproject/NumberRecycling/releases/tag/r2.2)**.
   - Contains the following API definitions **with inline documentation**:
     - [YAML spec file](https://github.com/camaraproject/NumberRecycling/blob/r2.2/code/API_definitions/number-recycling.yaml) | [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r2.2/code/API_definitions/number-recycling.yaml&nocors) | [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r2.2/code/API_definitions/number-recycling.yaml&nocors)
-* **NEW**: Pre-release [r2.2](https://github.com/camaraproject/NumberRecycling/releases/tag/r2.2) with number-recycling v0.2.0 is available.
+* **NEW**: Public release [r2.2](https://github.com/camaraproject/NumberRecycling/releases/tag/r2.2) with number-recycling v0.2.0 is available.
 
 ## Contributing
 * Meetings of KnowYourCustomer Sub Project are held virtually 
