@@ -2,6 +2,7 @@
 
 ## Table of Contents
 
+- [r2.2](#r22)
 - [r2.1](#r21)
 - [r1.3](#r13)
 - [r1.2](#r12)
@@ -15,6 +16,43 @@ The below sections record the changes for each API version in each release as fo
 * for the first release-candidate, all changes since the last public release
 * for subsequent release-candidate(s), only the delta to the previous release-candidate
 * for a public release, the consolidated changes since the previous public release
+
+# r2.2
+
+## Release Notes
+
+This pre-release contains the definition and documentation of
+* number-recycling v0.2.0
+
+The API definition(s) are based on
+* Commonalities v0.6.0
+* Identity and Consent Management v0.4.0
+
+## number-recycling v0.2.0
+
+**number-recycling v0.2.0 is the second release version of the Number-Recycling API.**
+
+- number-recycling v0.2.0 API definition **with inline documentation**:
+  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r2.2/code/API_definitions/number-recycling.yaml&nocors)
+  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r2.2/code/API_definitions/number-recycling.yaml&nocors)
+  - OpenAPI [YAML spec file](https://github.com/camaraproject/NumberRecycling/blob/r2.2/code/API_definitions/number-recycling.yaml)
+
+### Added
+* Add a missing summary for operation POST /check to YAML file in https://github.com/camaraproject/NumberRecycling/pull/64
+
+### Changed
+* Update versions in API and test definitions back to wip in https://github.com/camaraproject/NumberRecycling/pull/63
+
+### Fixed
+* N/A
+
+### Removed
+* N/A
+
+## New Contributors
+* N/A
+
+**Full Changelog**: https://github.com/camaraproject/NumberRecycling/compare/r1.3...r2.2
 
 # r2.1
 
