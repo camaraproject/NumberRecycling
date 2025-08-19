@@ -30,7 +30,7 @@ The API definition(s) are based on
 
 ## number-recycling v0.2.0
 
-**number-recycling v0.2.0 is the second release version of the Number-Recycling API.**
+**number-recycling v0.2.0 is the second public release of the Number-Recycling API.**
 
 - number-recycling v0.2.0 API definition **with inline documentation**:
   - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r2.2/code/API_definitions/number-recycling.yaml&nocors)
