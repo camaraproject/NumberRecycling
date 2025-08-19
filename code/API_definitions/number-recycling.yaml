@@ -91,6 +91,7 @@ paths:
             - number-recycling:check
       tags:
         - Check Number Recycling
+      summary: Check whether the subscriber of the phone number has changed.
       description: Check whether the subscriber of the phone number has changed.
       operationId: checkNumberRecycling
       parameters:
