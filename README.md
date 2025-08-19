@@ -25,10 +25,9 @@ Sandbox API Repository to describe, develop, document, and test the NumberRecycl
 
 * Note: Please be aware that the project will have updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until a new release is created. For example, changes may be reverted before a release is created. For best results, use the latest available release.
 
-* **The latest public release of CAMARA Number Recycling is [r1.3](https://github.com/camaraproject/NumberRecycling/releases/tag/r1.3)**.
-<br>This is a public release. Generated as a patch release of [r1.2](https://github.com/camaraproject/NumberRecycling/releases/tag/r1.2)
+* **The latest public release of CAMARA Number Recycling is [r2.2](https://github.com/camaraproject/NumberRecycling/releases/tag/r2.2)**.
   - Contains the following API definitions **with inline documentation**:
-    - [YAML spec file](https://github.com/camaraproject/NumberRecycling/blob/r1.3/code/API_definitions/number-recycling.yaml) | [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.3/code/API_definitions/number-recycling.yaml&nocors) | [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.3/code/API_definitions/number-recycling.yaml&nocors)
+    - [YAML spec file](https://github.com/camaraproject/NumberRecycling/blob/r2.2/code/API_definitions/number-recycling.yaml) | [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r2.2/code/API_definitions/number-recycling.yaml&nocors) | [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r2.2/code/API_definitions/number-recycling.yaml&nocors)
 * **NEW**: Pre-release [r2.2](https://github.com/camaraproject/NumberRecycling/releases/tag/r2.2) with number-recycling v0.2.0 is available.
 
 ## Contributing
