@@ -9,17 +9,17 @@ Feature: CAMARA Number Recycling API, v0.2.0 - Operation checkNumberRecycling
   # References to OAS spec schemas refer to schemas specified in number-recycling.yaml
 
   Background: Common checkNumberRecycling setup
-      Given an environment at "apiRoot"
-      And the resource "/number-recycling/v0.2/check"
-      And the header "Content-Type" is set to "application/json"
-      And the header "Authorization" is set to a valid access token
-      And the header "x-correlator" complies with the schema at "#/components/schemas/XCorrelator"
-      And the request body is set by default to a request body compliant with the schema
+    Given an environment at "apiRoot"
+    And the resource "/number-recycling/v0.2/check"
+    And the header "Content-Type" is set to "application/json"
+    And the header "Authorization" is set to a valid access token
+    And the header "x-correlator" complies with the schema at "#/components/schemas/XCorrelator"
+    And the request body is set by default to a request body compliant with the schema
 
   # Happy path scenarios for number-recycling operation
 
   @checkNumberRecycling_01_success_request_response_when_phoneNumberRecycled_is_false
-    Scenario: Validate successful response when the phone number is linked to User
+  Scenario: Validate successful response when the phone number is linked to User
     Given a valid phone number supported by the service, identified by the access token or provided in the request body
     And the request body property "$.specifiedDate" is set to a date on which the user signed contracts with Service Provider
     When the HTTP "POST" request is sent
@@ -41,11 +41,10 @@ Feature: CAMARA Number Recycling API, v0.2.0 - Operation checkNumberRecycling
     And the response body complies with the OAS schema at "/components/schemas/CheckNumRecyclingInfo"
     And the value of response property "$.phoneNumberRecycled" is true
 
-
   # Generic 400 errors
 
   @checkNumberRecycling_400.01_invalid_specifiedDate
-  Scenario Outline: Error 400 when specified date does not comply with the RFC 3339 calendar date format (YYYY-MM-DD).
+  Scenario: Error 400 when specified date does not comply with the RFC 3339 calendar date format (YYYY-MM-DD).
     Given a valid testing phone number supported by the service, identified by the access token or provided in the request body
     And the request body is set to a valid parameter combination with property "$.specifiedDate" set to "<invalid_specifiedDate>"
     When the HTTP "POST" request is sent
@@ -90,7 +89,6 @@ Feature: CAMARA Number Recycling API, v0.2.0 - Operation checkNumberRecycling
     And the response property "$.code" is "INVALID_ARGUMENT"
     And the response property "$.message" contains a user friendly text
 
-
   # Generic 401 errors
 
   @checkNumberRecycling_401.1_expired_access_token
@@ -102,7 +100,6 @@ Feature: CAMARA Number Recycling API, v0.2.0 - Operation checkNumberRecycling
     And the response property "$.message" contains a user friendly text
     And the response property "$.status" is 401
 
-
   @checkNumberRecycling_401.2_invalid_access_token
   Scenario: Error response for invalid access token
     Given the header "Authorization" is set to an invalid access token which is invalid for reasons other than lifetime expiry
@@ -111,7 +108,6 @@ Feature: CAMARA Number Recycling API, v0.2.0 - Operation checkNumberRecycling
     And the response property "$.code" is "UNAUTHENTICATED"
     And the response property "$.message" contains a user friendly text
     And the response property "$.status" is 401
-
 
   @checkNumberRecycling_401.3_no_header_authorization
   Scenario: Error response for no header "Authorization"
@@ -122,7 +118,6 @@ Feature: CAMARA Number Recycling API, v0.2.0 - Operation checkNumberRecycling
     And the response property "$.message" contains a user friendly text
     And the response property "$.status" is 401
 
-  
   # Generic 403 errors
 
   @checkNumberRecycling_403.1_invalid_token_permissions
@@ -134,46 +129,45 @@ Feature: CAMARA Number Recycling API, v0.2.0 - Operation checkNumberRecycling
     And the response property "$.code" is "PERMISSION_DENIED"
     And the response property "$.message" contains a user friendly text
 
-
   # Error scenarios for management of input parameter phoneNumber
 
   @checkNumberRecycling_C02.01_phone_number_not_schema_compliant
   Scenario: Phone number value does not comply with the schema
-      Given the header "Authorization" is set to a valid access which does not identify a single phone number
-      And the request body property "$.phoneNumber" does not comply with the OAS schema at "/components/schemas/PhoneNumber"
-      When the HTTP "POST" request is sent
-      Then the response status code is 400
-      And the response property "$.status" is 400
-      And the response property "$.code" is "INVALID_ARGUMENT"
-      And the response property "$.message" contains a user friendly text
-  
+    Given the header "Authorization" is set to a valid access which does not identify a single phone number
+    And the request body property "$.phoneNumber" does not comply with the OAS schema at "/components/schemas/PhoneNumber"
+    When the HTTP "POST" request is sent
+    Then the response status code is 400
+    And the response property "$.status" is 400
+    And the response property "$.code" is "INVALID_ARGUMENT"
+    And the response property "$.message" contains a user friendly text
+
   # Only with a 3-legged access token
   @checkNumberRecycling_C02.03_unnecessary_phone_number
   Scenario: Phone number should not be included when it can be deducted from the access token
-      Given the header "Authorization" is set to a valid access token identifying a phone number
-      And  the request body property "$.phoneNumber" is set to a valid phone number
-      When the HTTP "POST" request is sent
-      Then the response status code is 422
-      And the response property "$.status" is 422
-      And the response property "$.code" is "UNNECESSARY_IDENTIFIER"
-      And the response property "$.message" contains a user friendly text
+    Given the header "Authorization" is set to a valid access token identifying a phone number
+    And  the request body property "$.phoneNumber" is set to a valid phone number
+    When the HTTP "POST" request is sent
+    Then the response status code is 422
+    And the response property "$.status" is 422
+    And the response property "$.code" is "UNNECESSARY_IDENTIFIER"
+    And the response property "$.message" contains a user friendly text
 
   @checkNumberRecycling_C02.04_missing_phone_number
   Scenario: Phone number not included and cannot be deducted from the access token
-      Given the header "Authorization" is set to a valid access which does not identify a single phone number
-      And the request body property "$.phoneNumber" is not included
-      When the HTTP "POST" request is sent
-      Then the response status code is 422
-      And the response property "$.status" is 422
-      And the response property "$.code" is "MISSING_IDENTIFIER"
-      And the response property "$.message" contains a user friendly text
+    Given the header "Authorization" is set to a valid access which does not identify a single phone number
+    And the request body property "$.phoneNumber" is not included
+    When the HTTP "POST" request is sent
+    Then the response status code is 422
+    And the response property "$.status" is 422
+    And the response property "$.code" is "MISSING_IDENTIFIER"
+    And the response property "$.message" contains a user friendly text
 
   @checkNumberRecycling_C02.05_phone_number_not_supported
   Scenario: Service not available for the phone number
-      Given that the service is not available for all phone numbers commercialized by the operator
-      And a valid phone number, identified by the token or provided in the request body, for which the service is not applicable
-      When the HTTP "POST" request is sent
-      Then the response status code is 422
-      And the response property "$.status" is 422
-      And the response property "$.code" is "SERVICE_NOT_APPLICABLE"
-      And the response property "$.message" contains a user friendly text
+    Given that the service is not available for all phone numbers commercialized by the operator
+    And a valid phone number, identified by the token or provided in the request body, for which the service is not applicable
+    When the HTTP "POST" request is sent
+    Then the response status code is 422
+    And the response property "$.status" is 422
+    And the response property "$.code" is "SERVICE_NOT_APPLICABLE"
+    And the response property "$.message" contains a user friendly text
