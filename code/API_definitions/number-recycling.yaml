@@ -176,7 +176,7 @@ components:
           description: A human-readable code to describe  the error
         message:
           type: string
-          description: A human readable description of what the event represent
+          description: A human-readable description of what the event represents
     XCorrelator:
       type: string
       pattern: ^[a-zA-Z0-9-_:;.\/<>{}]{0,256}$
