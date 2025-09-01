@@ -42,9 +42,10 @@ The API definition(s) are based on
 
 ### Changed
 * Update versions in API and test definitions back to wip in https://github.com/camaraproject/NumberRecycling/pull/63
+* Update a description in error schema in https://github.com/camaraproject/NumberRecycling/pull/71
 
 ### Fixed
-* N/A
+* Fix feature files for compliance with centralised linting rules in https://github.com/camaraproject/NumberRecycling/pull/67
 
 ### Removed
 * N/A
