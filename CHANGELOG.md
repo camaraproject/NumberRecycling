@@ -38,9 +38,12 @@ The API definition(s) are based on
   - OpenAPI [YAML spec file](https://github.com/camaraproject/NumberRecycling/blob/r2.2/code/API_definitions/number-recycling.yaml)
 
 ### Added
+* Add text on undocumented errors to OAS definition in https://github.com/camaraproject/NumberRecycling/pull/56
 * Add a missing summary for operation POST /check to YAML file in https://github.com/camaraproject/NumberRecycling/pull/64
 
 ### Changed
+* Update x-correlator pattern in https://github.com/camaraproject/NumberRecycling/pull/59
+* Update test plan and align with Commonalities guidelines in https://github.com/camaraproject/NumberRecycling/pull/60
 * Update versions in API and test definitions back to wip in https://github.com/camaraproject/NumberRecycling/pull/63
 * Update a description in error schema in https://github.com/camaraproject/NumberRecycling/pull/71
 
@@ -48,7 +51,7 @@ The API definition(s) are based on
 * Fix feature files for compliance with centralised linting rules in https://github.com/camaraproject/NumberRecycling/pull/67
 
 ### Removed
-* N/A
+* Remove AUTHENTICATION_REQUIRED error code in https://github.com/camaraproject/NumberRecycling/pull/47
 
 ## New Contributors
 * N/A
