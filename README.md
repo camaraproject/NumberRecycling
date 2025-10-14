@@ -32,7 +32,7 @@ Sandbox API Repository to describe, develop, document, and test the NumberRecycl
 
 ## Contributing
 * Meetings of KnowYourCustomer Sub Project are held virtually 
-    * Schedule: Bi-weekly, Tuesday, 09:00 CEST (07:00 UTC)
+    * Schedule: Bi-weekly, Tuesday, 08:00 UTC (09:00 CET, 10:00 CEST)
     * [Registration / Join](https://zoom-lfx.platform.linuxfoundation.org/meeting/96235150735?password=7e3fea67-a76e-4941-8a70-392cf5545917)
     * Minutes: Access [meeting minutes](https://github.com/camaraproject/KnowYourCustomer/tree/main/documentation/MeetingMinutes)
 * Mailing List
