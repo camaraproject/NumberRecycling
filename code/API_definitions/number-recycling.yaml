@@ -106,7 +106,14 @@ paths:
         required: true
       responses:
         '200':
-          $ref: '#/components/responses/Generic200'
+          description: OK
+          headers:
+            x-correlator:
+              $ref: "#/components/headers/x-correlator"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CheckNumRecyclingInfo"
         '400':
           $ref: '#/components/responses/Generic400'
         '401':
