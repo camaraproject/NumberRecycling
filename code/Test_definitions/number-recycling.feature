@@ -141,6 +141,16 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
     And the response property "$.code" is "INVALID_ARGUMENT"
     And the response property "$.message" contains a user friendly text
 
+  @checkNumberRecycling_C02.02_phone_number_not_found
+  Scenario: Phone number not found
+    Given the header "Authorization" is set to a valid access token which does not identify a single phone number
+    And the request body property "$.phoneNumber" is compliant with the schema but does not identify a valid phone number
+    When the request "POST" is sent
+    Then the response status code is 404
+    And the response property "$.status" is 404
+    And the response property "$.code" is "IDENTIFIER_NOT_FOUND"
+    And the response property "$.message" contains a user friendly text
+
   # Only with a 3-legged access token
   @checkNumberRecycling_C02.03_unnecessary_phone_number
   Scenario: Phone number should not be included when it can be deducted from the access token
