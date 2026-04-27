@@ -43,7 +43,7 @@ info:
     * When the API receives a request with specified date during which there is no contract with MNO for the phone number, the API respond sets to 'true'(e.g., the period between 2024-02-25 and 2024-09-20 in the Scenario 2 of the figure above).
 
     ##How to choose specifiedDate by ASP (API consumer)
-    ASP should choose a date when the ASP established a trusted association between the user and the phone number, for example onboarding, phone number verification, or another validated point including the time when the Number Recycling API was invoked and returned a false result.
+    ASP should choose a date when the ASP established a trusted association between the user and the phone number, for example onboarding, phone number verification, or another validated point in the ASP's own trust process. A previous Number Recycling check that returned `false` may be used as an operational reference date, if this is consistent with the ASP's own trust model.
     For typicall scenario, as mentioned in the potential scenarios, ASP has a trusted association between the user and the phone number via onboarding process for its services and records the onboarding date. When the ASP invokes the Number Recycling API for the first time, the ASP should choose the onbording date as specifiedDate. For the second time and beyond, the ASP should use as a specifiedDate the previous date when the Number Recycling API was invoked and returned a false result.
 
     # Authorization and authentication
