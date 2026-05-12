@@ -44,9 +44,9 @@ info:
 
     ##How to choose specifiedDate by ASP (API consumer)
     ASP should choose a date when the ASP established a trusted association between the user and the phone number, for example onboarding, phone number verification, or another validated point in the ASP's own trust process. A previous Number Recycling check that returned `false` may be used as an operational reference date, if this is consistent with the ASP's own trust model.
-    
+
     However, a date that is trusted from the ASP perspective is not necessarily processable by every API provider. If `specifiedDate` is outside the API provider's supported/evaluable window and therefore cannot be processed as a valid reference date, the response should be `OUT_OF_RANGE` rather than a boolean result.
-    
+
     For a typical scenario, as illustrated in the potential scenarios, the ASP may have established a trusted association between the user and the phone number during onboarding for its service, and may record that onboarding date. For the first invocation of the Number Recycling API, the ASP may use the onboarding date as `specifiedDate`, if this is the trusted reference date according to its own policy. For subsequent invocations, different strategies may be valid depending on the ASP's policy and implementation. For example, the ASP may continue using the original onboarding date, or it may choose to advance the reference date to a later trusted point. One possible operational pattern is to use the date of a previous Number Recycling check that returned `false`, provided that this is consistent with the ASP's own trust model.
 
     # Authorization and authentication
