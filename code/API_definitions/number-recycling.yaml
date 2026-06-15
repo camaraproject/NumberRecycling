@@ -100,7 +100,7 @@ servers:
 tags:
   - name: Check Number Recycling
     description: Check whether the subscriber of the phone number has changed.
-    
+
 paths:
   /check:
     post:
