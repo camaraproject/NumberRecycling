@@ -119,7 +119,7 @@ paths:
       description: Check whether the subscriber of the phone number has changed.
       operationId: checkNumberRecycling
       parameters:
-        - $ref: '#/components/parameters/x-correlator'
+        - $ref: '../common/CAMARA_common.yaml#/components/parameters/x-correlator'
       requestBody:
         description: |
           Check whether the subscriber of the phone number has changed.
@@ -133,7 +133,7 @@ paths:
           description: OK
           headers:
             x-correlator:
-              $ref: "#/components/headers/x-correlator"
+              $ref: "../common/CAMARA_common.yaml#/components/headers/x-correlator"
           content:
             application/json:
               schema:
@@ -151,21 +151,7 @@ paths:
 components:
   securitySchemes:
     openId:
-      description: OpenID Connect authentication
-      type: openIdConnect
-      openIdConnectUrl: https://example.com/.well-known/openid-configuration
-  parameters:
-    x-correlator:
-      name: x-correlator
-      in: header
-      description: Correlation id for the different services
-      schema:
-        $ref: "#/components/schemas/XCorrelator"
-  headers:
-    x-correlator:
-      description: Correlation id for the different services
-      schema:
-        $ref: "#/components/schemas/XCorrelator"
+      $ref: "../common/CAMARA_common.yaml#/components/securitySchemes/openId"
   schemas:
     CreateCheckNumRecycling:
       description: Properties to request for a number recycling check
@@ -174,19 +160,13 @@ components:
         - specifiedDate
       properties:
         phoneNumber:
-          $ref: '#/components/schemas/PhoneNumber'
+          $ref: '../common/CAMARA_common.yaml#/components/schemas/PhoneNumber'
         specifiedDate:
           type: string
           format: date
           maxLength: 64
           description: Specified date to check whether there has been a change in the subscriber associated with the specific phone number, in RFC 3339 calendar date format (YYYY-MM-DD).
           example: "2024-10-31"
-    PhoneNumber:
-      description: A public identifier addressing a telephone subscription. In mobile networks it corresponds to the MSISDN (Mobile Station International Subscriber Directory Number). In order to be globally unique it has to be formatted in international format, according to E.164 standard, prefixed with '+'.
-      type: string
-      maxLength: 20
-      pattern: '^\+[1-9][0-9]{4,14}$'
-      example: "+123456789"
     CheckNumRecyclingInfo:
       description: Properties to response to a number recycling check request
       type: object
@@ -197,40 +177,12 @@ components:
           type: boolean
           description: |
             Set to true (Boolean, not string) when there has been a change in the subscriber associated with the specific phone number after “specifiedDate”.
-    ErrorInfo:
-      description: Common schema for errors
-      type: object
-      required:
-        - status
-        - code
-        - message
-      properties:
-        status:
-          type: integer
-          format: int32
-          minimum: 100
-          maximum: 599
-          description: HTTP response status code
-        code:
-          type: string
-          maxLength: 96
-          description: A human-readable code to describe the error
-        message:
-          type: string
-          maxLength: 512
-          description: A human-readable description of what the event represents
-    XCorrelator:
-      type: string
-      maxLength: 256
-      description: Correlator string, UUID format recommended but any string matching the pattern can be used
-      pattern: ^[a-zA-Z0-9-_:;.\/<>{}]{0,256}$
-      example: "b4333c46-49c0-4f62-80d7-f0ef930f1c46"
   responses:
     Generic200:
       description: OK
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
       content:
         application/json:
           schema:
@@ -240,12 +192,12 @@ components:
       description: Problem with the client request
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "#/components/schemas/ErrorInfo"
+              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
               - type: object
                 properties:
                   status:
@@ -273,12 +225,12 @@ components:
       description: Authentication problem with the client request
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "#/components/schemas/ErrorInfo"
+              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
               - type: object
                 properties:
                   status:
@@ -299,12 +251,12 @@ components:
       description: Client does not have sufficient permission
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "#/components/schemas/ErrorInfo"
+              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
               - type: object
                 properties:
                   status:
@@ -325,12 +277,12 @@ components:
       description: Resource Not Found
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "#/components/schemas/ErrorInfo"
+              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
               - type: object
                 properties:
                   status:
@@ -351,12 +303,12 @@ components:
       description: Unprocessable Content
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "#/components/schemas/ErrorInfo"
+              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
               - type: object
                 properties:
                   status:
