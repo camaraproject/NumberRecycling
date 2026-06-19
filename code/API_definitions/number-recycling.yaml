@@ -49,6 +49,7 @@ info:
 
     For a typical scenario, as illustrated in the potential scenarios, the ASP may have established a trusted association between the user and the phone number during onboarding for its service, and may record that onboarding date. For the first invocation of the Number Recycling API, the ASP may use the onboarding date as `specifiedDate`, if this is the trusted reference date according to its own policy. For subsequent invocations, different strategies may be valid depending on the ASP's policy and implementation. For example, the ASP may continue using the original onboarding date, or it may choose to advance the reference date to a later trusted point. One possible operational pattern is to use the date of a previous Number Recycling check that returned `false`, provided that this is consistent with the ASP's own trust model.
 
+    <!-- CAMARA:MANDATORY:authorization-and-authentication:BEGIN -->
     # Authorization and authentication
 
     The "Camara Security and Interoperability Profile" provides details of how an API consumer requests an access token. Please refer to Identity and Consent Management (https://github.com/camaraproject/IdentityAndConsentManagement/) for the released version of the profile.
@@ -56,6 +57,7 @@ info:
     The specific authorization flows to be used will be agreed upon during the onboarding process, happening between the API consumer and the API provider, taking into account the declared purpose for accessing the API, whilst also being subject to the prevailing legal framework dictated by local legislation.
 
     In cases where personal data is processed by the API and users can exercise their rights through mechanisms such as opt-in and/or opt-out, the use of three-legged access tokens is mandatory. This ensures that the API remains in compliance with privacy regulations, upholding the principles of transparency and user-centric privacy-by-design.
+    <!-- CAMARA:MANDATORY:authorization-and-authentication:END -->
 
     # Identifying the phone number from the access token
 
@@ -70,10 +72,21 @@ info:
     - If the subject cannot be identified from the access token and the optional `phoneNumber` field is not included in the request, then the server will return an error with the `422 MISSING_IDENTIFIER` error code.
     - If the subject can be identified from the access token and the optional `phoneNumber` field is also included in the request, then the server will return an error with the `422 UNNECESSARY_IDENTIFIER` error code. This will be the case even if the same phone number is identified by these two methods, as the server is unable to make this comparison.
 
-    ### Additional CAMARA error responses
-    The list of error codes in this API specification is not exhaustive. Therefore the API specification may not document some non-mandatory error statuses as indicated in `CAMARA API Design Guide`.
+    <!-- CAMARA:MANDATORY:additional-error-responses:BEGIN -->
+    # Additional CAMARA error responses
+
+    The list of error codes in this API specification is not exhaustive. Therefore the API specification MAY not document some non-mandatory error statuses as indicated in `CAMARA API Design Guide`.
+
     Please refer to the `CAMARA_common.yaml` of the Commonalities Release associated to this API version for a complete list of error responses. The applicable Commonalities Release can be identified in the `API Readiness Checklist` document associated to this API version.
+
     As a specific rule, error `501 - NOT_IMPLEMENTED` can be only a possible error response if it is explicitly documented in the API.
+    <!-- CAMARA:MANDATORY:additional-error-responses:END -->
+
+    <!-- CAMARA:MANDATORY:request-body-strictness:BEGIN -->
+    # Request body strictness
+
+    This API rejects requests with JSON request bodies that contain properties not declared in this specification, at any nesting level. Unknown properties result in a `400 INVALID_ARGUMENT` response.
+    <!-- CAMARA:MANDATORY:request-body-strictness:END -->
 
   version: wip
   x-camara-commonalities: tbd
@@ -90,6 +103,10 @@ servers:
       apiRoot:
         default: http://localhost:9091
         description: API root, defined by the service provider, e.g. `api.example.com` or `api.example.com/somepath`
+tags:
+  - name: Check Number Recycling
+    description: Check whether the subscriber of the phone number has changed.
+
 paths:
   /check:
     post:
@@ -102,7 +119,7 @@ paths:
       description: Check whether the subscriber of the phone number has changed.
       operationId: checkNumberRecycling
       parameters:
-        - $ref: '#/components/parameters/x-correlator'
+        - $ref: '../common/CAMARA_common.yaml#/components/parameters/x-correlator'
       requestBody:
         description: |
           Check whether the subscriber of the phone number has changed.
@@ -116,7 +133,7 @@ paths:
           description: OK
           headers:
             x-correlator:
-              $ref: "#/components/headers/x-correlator"
+              $ref: "../common/CAMARA_common.yaml#/components/headers/x-correlator"
           content:
             application/json:
               schema:
@@ -134,39 +151,24 @@ paths:
 components:
   securitySchemes:
     openId:
-      type: openIdConnect
-      openIdConnectUrl: https://example.com/.well-known/openid-configuration
-  parameters:
-    x-correlator:
-      name: x-correlator
-      in: header
-      description: Correlation id for the different services
-      schema:
-        $ref: "#/components/schemas/XCorrelator"
-  headers:
-    x-correlator:
-      description: Correlation id for the different services
-      schema:
-        $ref: "#/components/schemas/XCorrelator"
+      $ref: "../common/CAMARA_common.yaml#/components/securitySchemes/openId"
   schemas:
     CreateCheckNumRecycling:
+      description: Properties to request for a number recycling check
       type: object
       required:
         - specifiedDate
       properties:
         phoneNumber:
-          $ref: '#/components/schemas/PhoneNumber'
+          $ref: '../common/CAMARA_common.yaml#/components/schemas/PhoneNumber'
         specifiedDate:
           type: string
           format: date
+          maxLength: 64
           description: Specified date to check whether there has been a change in the subscriber associated with the specific phone number, in RFC 3339 calendar date format (YYYY-MM-DD).
           example: "2024-10-31"
-    PhoneNumber:
-      description: A public identifier addressing a telephone subscription. In mobile networks it corresponds to the MSISDN (Mobile Station International Subscriber Directory Number). In order to be globally unique it has to be formatted in international format, according to E.164 standard, prefixed with '+'.
-      type: string
-      pattern: '^\+[1-9][0-9]{4,14}$'
-      example: "+123456789"
     CheckNumRecyclingInfo:
+      description: Properties to response to a number recycling check request
       type: object
       required:
         - phoneNumberRecycled
@@ -175,32 +177,12 @@ components:
           type: boolean
           description: |
             Set to true (Boolean, not string) when there has been a change in the subscriber associated with the specific phone number after “specifiedDate”.
-    ErrorInfo:
-      type: object
-      required:
-        - status
-        - code
-        - message
-      properties:
-        status:
-          type: integer
-          description: HTTP response status code
-        code:
-          type: string
-          description: A human-readable code to describe the error
-        message:
-          type: string
-          description: A human-readable description of what the event represents
-    XCorrelator:
-      type: string
-      pattern: ^[a-zA-Z0-9-_:;.\/<>{}]{0,256}$
-      example: "b4333c46-49c0-4f62-80d7-f0ef930f1c46"
   responses:
     Generic200:
       description: OK
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
       content:
         application/json:
           schema:
@@ -210,12 +192,12 @@ components:
       description: Problem with the client request
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "#/components/schemas/ErrorInfo"
+              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
               - type: object
                 properties:
                   status:
@@ -243,12 +225,12 @@ components:
       description: Authentication problem with the client request
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "#/components/schemas/ErrorInfo"
+              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
               - type: object
                 properties:
                   status:
@@ -269,12 +251,12 @@ components:
       description: Client does not have sufficient permission
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "#/components/schemas/ErrorInfo"
+              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
               - type: object
                 properties:
                   status:
@@ -295,12 +277,12 @@ components:
       description: Resource Not Found
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "#/components/schemas/ErrorInfo"
+              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
               - type: object
                 properties:
                   status:
@@ -321,12 +303,12 @@ components:
       description: Unprocessable Content
       headers:
         x-correlator:
-          $ref: '#/components/headers/x-correlator'
+          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "#/components/schemas/ErrorInfo"
+              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
               - type: object
                 properties:
                   status:
