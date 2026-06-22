@@ -87,18 +87,13 @@ info:
 
     This API rejects requests with JSON request bodies that contain properties not declared in this specification, at any nesting level. Unknown properties result in a `400 INVALID_ARGUMENT` response.
     <!-- CAMARA:MANDATORY:request-body-strictness:END -->
-
-  version: wip
-  x-camara-commonalities: tbd
-
+  version: 0.3.0-rc.1
+  x-camara-commonalities: 0.8.0
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-externalDocs:
-  description: Product documentation at CAMARA
-  url: https://github.com/camaraproject/NumberRecycling
 servers:
-  - url: '{apiRoot}/number-recycling/vwip'
+  - url: '{apiRoot}/number-recycling/v0.3rc1'
     variables:
       apiRoot:
         default: http://localhost:9091
@@ -106,7 +101,9 @@ servers:
 tags:
   - name: Check Number Recycling
     description: Check whether the subscriber of the phone number has changed.
-
+externalDocs:
+  description: Product documentation at CAMARA
+  url: https://github.com/camaraproject/NumberRecycling
 paths:
   /check:
     post:
@@ -119,7 +116,7 @@ paths:
       description: Check whether the subscriber of the phone number has changed.
       operationId: checkNumberRecycling
       parameters:
-        - $ref: '../common/CAMARA_common.yaml#/components/parameters/x-correlator'
+        - $ref: '#/components/parameters/x-correlator'
       requestBody:
         description: |
           Check whether the subscriber of the phone number has changed.
@@ -133,11 +130,11 @@ paths:
           description: OK
           headers:
             x-correlator:
-              $ref: "../common/CAMARA_common.yaml#/components/headers/x-correlator"
+              $ref: '#/components/headers/x-correlator'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CheckNumRecyclingInfo"
+                $ref: '#/components/schemas/CheckNumRecyclingInfo'
         '400':
           $ref: '#/components/responses/Generic400'
         '401':
@@ -151,7 +148,9 @@ paths:
 components:
   securitySchemes:
     openId:
-      $ref: "../common/CAMARA_common.yaml#/components/securitySchemes/openId"
+      type: openIdConnect
+      openIdConnectUrl: https://example.com/.well-known/openid-configuration
+      description: OpenID Connect authentication via discovery metadata.
   schemas:
     CreateCheckNumRecycling:
       description: Properties to request for a number recycling check
@@ -160,13 +159,13 @@ components:
         - specifiedDate
       properties:
         phoneNumber:
-          $ref: '../common/CAMARA_common.yaml#/components/schemas/PhoneNumber'
+          $ref: '#/components/schemas/PhoneNumber'
         specifiedDate:
           type: string
           format: date
           maxLength: 64
           description: Specified date to check whether there has been a change in the subscriber associated with the specific phone number, in RFC 3339 calendar date format (YYYY-MM-DD).
-          example: "2024-10-31"
+          example: '2024-10-31'
     CheckNumRecyclingInfo:
       description: Properties to response to a number recycling check request
       type: object
@@ -177,27 +176,60 @@ components:
           type: boolean
           description: |
             Set to true (Boolean, not string) when there has been a change in the subscriber associated with the specific phone number after “specifiedDate”.
+    XCorrelator:
+      type: string
+      description: Correlator string, UUID format recommended but any string matching the pattern can be used
+      pattern: ^[a-zA-Z0-9-_:;.\/<>{}]{0,256}$
+      maxLength: 256
+      example: b4333c46-49c0-4f62-80d7-f0ef930f1c46
+    PhoneNumber:
+      description: A public identifier addressing a telephone subscription. In mobile networks it corresponds to the MSISDN (Mobile Station International Subscriber Directory Number). In order to be globally unique it has to be formatted in international format, according to E.164 standard, prefixed with '+'.
+      type: string
+      pattern: ^\+[1-9][0-9]{4,14}$
+      maxLength: 16
+      example: '+123456789'
+    ErrorInfo:
+      type: object
+      description: A structured error response providing details about a failed request, including the HTTP status code, an error code, and a human-readable message
+      required:
+        - status
+        - code
+        - message
+      properties:
+        status:
+          type: integer
+          format: int32
+          minimum: 100
+          maximum: 599
+          description: HTTP response status code
+        code:
+          type: string
+          maxLength: 96
+          description: A human-readable code to describe the error
+        message:
+          type: string
+          maxLength: 512
+          description: A human-readable description of what the event represents
   responses:
     Generic200:
       description: OK
       headers:
         x-correlator:
-          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
+          $ref: '#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/CheckNumRecyclingInfo'
-
     Generic400:
       description: Problem with the client request
       headers:
         x-correlator:
-          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
+          $ref: '#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
+              - $ref: '#/components/schemas/ErrorInfo'
               - type: object
                 properties:
                   status:
@@ -220,17 +252,16 @@ components:
                 status: 400
                 code: OUT_OF_RANGE
                 message: Client specified an invalid range.
-
     Generic401:
       description: Authentication problem with the client request
       headers:
         x-correlator:
-          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
+          $ref: '#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
+              - $ref: '#/components/schemas/ErrorInfo'
               - type: object
                 properties:
                   status:
@@ -246,17 +277,16 @@ components:
                 status: 401
                 code: UNAUTHENTICATED
                 message: Request not authenticated due to missing, invalid, or expired credentials. A new authentication is required.
-
     Generic403:
       description: Client does not have sufficient permission
       headers:
         x-correlator:
-          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
+          $ref: '#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
+              - $ref: '#/components/schemas/ErrorInfo'
               - type: object
                 properties:
                   status:
@@ -272,17 +302,16 @@ components:
                 status: 403
                 code: PERMISSION_DENIED
                 message: Client does not have sufficient permissions to perform this action
-
     Generic404:
       description: Resource Not Found
       headers:
         x-correlator:
-          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
+          $ref: '#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
+              - $ref: '#/components/schemas/ErrorInfo'
               - type: object
                 properties:
                   status:
@@ -298,17 +327,16 @@ components:
                 status: 404
                 code: IDENTIFIER_NOT_FOUND
                 message: Phone number not found.
-
     Generic422:
       description: Unprocessable Content
       headers:
         x-correlator:
-          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
+          $ref: '#/components/headers/x-correlator'
       content:
         application/json:
           schema:
             allOf:
-              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
+              - $ref: '#/components/schemas/ErrorInfo'
               - type: object
                 properties:
                   status:
@@ -338,3 +366,15 @@ components:
                 status: 422
                 code: MISSING_IDENTIFIER
                 message: The phone number cannot be identified
+  parameters:
+    x-correlator:
+      name: x-correlator
+      in: header
+      description: Correlation id for the different services
+      schema:
+        $ref: '#/components/schemas/XCorrelator'
+  headers:
+    x-correlator:
+      description: Correlation id for the different services
+      schema:
+        $ref: '#/components/schemas/XCorrelator'
