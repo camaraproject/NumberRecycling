@@ -70,15 +70,16 @@ Changes documented below are compared to version 0.2.0.
 
 ### Added
 
-* N/A
+* Add "C02.02_phone_number_not_found" test scenario by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/84
+* Clarification how to use the specifiedDate by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/93
 
 ### Changed
 
-* N/A
+* Alignment with Commonalities R4.3 for RC by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/101
 
 ### Fixed
 
-* N/A
+* Response schema not aligned with Commonalities guidelines by @yamamoto0104 in https://github.com/camaraproject/NumberRecycling/pull/78
 
 ### Removed
 
