@@ -12,6 +12,7 @@
 Sandbox API Repository to describe, develop, document, and test the NumberRecycling API within the [Know Your Customer (KYC)](https://lf-camaraproject.atlassian.net/wiki/x/I4DGB) Sub Project.
 
 * API Repository [wiki page](https://lf-camaraproject.atlassian.net/wiki/x/ggCaBQ)
+* CAMARA Resoureces [whitepaper "CAMARA APIs: Functional Differences"](https://camaraproject.org/wp-content/uploads/sites/12/2026/06/CAMARA-wp_api_diff_060126a.pdf)
 
 ## Scope
 
