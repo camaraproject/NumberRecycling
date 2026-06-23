@@ -23,6 +23,7 @@ info:
 
     Note:
     * When API receives a request with specified date on which a user signed a contract with MNO, the API respond sets to 'false'(e.g., 2023-10-09 in the Scenario 1 of the figure above).
+    * This Scenario 1 corresponds to the Line 0601 in Section 4.4 of the CAMARA whitepaper "CAMARA APIs: Functional Differences" (https://camaraproject.org/wp-content/uploads/sites/12/2026/06/CAMARA-wp_api_diff_060126a.pdf).
 
       * Scenario 2
         * Pre-conditions
@@ -40,7 +41,7 @@ info:
     <img width="4000" alt="Number_Recycling_scenario_2" src="https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.1/documentation/API_documentation/assets/Number_Recycling_scenario_2.png">
 
     Note:
-    * When the API receives a request with specified date during which there is no contract with MNO for the phone number, the API respond sets to 'true'(e.g., the period between 2024-02-25 and 2024-09-20 in the Scenario 2 of the figure above).
+    * This Scenario 2 corresponds to the Line 0607 in Section 4.4 of the CAMARA whitepaper "CAMARA APIs: Functional Differences" (https://camaraproject.org/wp-content/uploads/sites/12/2026/06/CAMARA-wp_api_diff_060126a.pdf).
 
     ##How to choose specifiedDate by ASP (API consumer)
     ASP should choose a date when the ASP established a trusted association between the user and the phone number, for example onboarding, phone number verification, or another validated point in the ASP's own trust process. A previous Number Recycling check that returned `false` may be used as an operational reference date, if this is consistent with the ASP's own trust model.
