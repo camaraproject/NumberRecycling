@@ -59,13 +59,9 @@ info:
     In cases where personal data is processed by the API and users can exercise their rights through mechanisms such as opt-in and/or opt-out, the use of three-legged access tokens is mandatory. This ensures that the API remains in compliance with privacy regulations, upholding the principles of transparency and user-centric privacy-by-design.
     <!-- CAMARA:MANDATORY:authorization-and-authentication:END -->
 
-    Note: Using CIBA to obtain an access token for this API is problematic, because CIBA
-    delivers an authentication challenge (e.g. a push notification or SMS) to the device
-    associated with the phone number. This conflicts with the API's purpose: checking
-    whether that phone number still belongs to the same subscriber who originally consented.
-    If the number has since been recycled, the authentication challenge is delivered to the
-    new subscriber rather than the original one — undermining the very check this API exists
-    to perform.
+    Note: If sending an authentication message in CIBA is based on the MSISDN and the MSISDN was reassigned to a new subscriber, then
+    this defeats the purpose of the number recycling API which is to determine whether the MSISDN was reassigned.
+    If the ASP and the CSP know at onboarding time that User consent is not needed, then JWT-Bearer-Flow with tel-prefix is recommended to be used with number recycling.
 
     # Identifying the phone number from the access token
 
