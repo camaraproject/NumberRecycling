@@ -180,16 +180,6 @@ components:
           description: |
             Set to true (Boolean, not string) when there has been a change in the subscriber associated with the specific phone number after “specifiedDate”.
   responses:
-    Generic200:
-      description: OK
-      headers:
-        x-correlator:
-          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CheckNumRecyclingInfo'
-
     Generic400:
       description: Problem with the client request
       headers:
