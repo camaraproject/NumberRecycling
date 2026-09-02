@@ -85,8 +85,6 @@ Changes documented below are compared to version 0.2.0.
 * Response schema not aligned with Commonalities guidelines by @yamamoto0104 in https://github.com/camaraproject/NumberRecycling/pull/78
 * Alignment with whitepaper by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/106
     - Note: This may be a behavioral change as it clarifies previously underspecified behavior.
-* Delete an unused schema Generic200 by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/113
-
 
 ### Removed
 
