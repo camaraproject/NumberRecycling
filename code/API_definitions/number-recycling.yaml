@@ -170,7 +170,8 @@ components:
         specifiedDate:
           type: string
           format: date
-          maxLength: 64
+          minLength: 10
+          maxLength: 10
           description: Specified date to check whether there has been a change in the subscriber associated with the specific phone number, in RFC 3339 calendar date format (YYYY-MM-DD).
           example: "2024-10-31"
     CheckNumRecyclingInfo:
