@@ -145,15 +145,15 @@ paths:
               schema:
                 $ref: "#/components/schemas/CheckNumRecyclingInfo"
         '400':
-          $ref: '#/components/responses/Generic400'
+          $ref: '#/components/responses/CheckNumberRecycling400'
         '401':
-          $ref: '#/components/responses/Generic401'
+          $ref: '../common/CAMARA_common.yaml#/components/responses/Unauthenticated401'
         '403':
-          $ref: '#/components/responses/Generic403'
+          $ref: '../common/CAMARA_common.yaml#/components/responses/PermissionDenied403'
         '404':
-          $ref: '#/components/responses/Generic404'
+          $ref: '#/components/responses/CheckNumberRecycling404'
         '422':
-          $ref: '#/components/responses/Generic422'
+          $ref: '#/components/responses/CheckNumberRecycling422'
 components:
   securitySchemes:
     openId:
@@ -184,7 +184,7 @@ components:
           description: |
             Set to true (Boolean, not string) when there has been a change in the subscriber associated with the specific phone number after “specifiedDate”.
   responses:
-    Generic400:
+    CheckNumberRecycling400:
       description: Problem with the client request
       headers:
         x-correlator:
@@ -217,59 +217,7 @@ components:
                 code: OUT_OF_RANGE
                 message: Client specified an invalid range.
 
-    Generic401:
-      description: Authentication problem with the client request
-      headers:
-        x-correlator:
-          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
-              - type: object
-                properties:
-                  status:
-                    enum:
-                      - 401
-                  code:
-                    enum:
-                      - UNAUTHENTICATED
-          examples:
-            Unauthenticated:
-              description: Request cannot be authenticated and a new authentication is required
-              value:
-                status: 401
-                code: UNAUTHENTICATED
-                message: Request not authenticated due to missing, invalid, or expired credentials. A new authentication is required.
-
-    Generic403:
-      description: Client does not have sufficient permission
-      headers:
-        x-correlator:
-          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
-              - type: object
-                properties:
-                  status:
-                    enum:
-                      - 403
-                  code:
-                    enum:
-                      - PERMISSION_DENIED
-          examples:
-            Permission Denied:
-              description: Permission denied. OAuth2 token access not have the required scope or when the user fails operational security
-              value:
-                status: 403
-                code: PERMISSION_DENIED
-                message: Client does not have sufficient permissions to perform this action
-
-    Generic404:
+    CheckNumberRecycling404:
       description: Resource Not Found
       headers:
         x-correlator:
@@ -295,7 +243,7 @@ components:
                 code: IDENTIFIER_NOT_FOUND
                 message: Phone number not found.
 
-    Generic422:
+    CheckNumberRecycling422:
       description: Unprocessable Content
       headers:
         x-correlator:
