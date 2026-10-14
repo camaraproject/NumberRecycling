@@ -205,7 +205,7 @@ components:
                       - OUT_OF_RANGE
           examples:
             InvalidArgument:
-              $ref: "../common/CAMARA_common.yaml#/components/examples/GENERIC_400_INMALID_ARGUMENT"
+              $ref: "../common/CAMARA_common.yaml#/components/examples/GENERIC_400_INVALID_ARGUMENT"
             OutOfRange:
               description: Out of Range. Specific Syntax Exception used when a given field has a pre-defined range or a invalid filter criteria combination is requested
               value:
