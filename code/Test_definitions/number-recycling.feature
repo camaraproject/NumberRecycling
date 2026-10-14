@@ -43,88 +43,106 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
 
   # Generic 400 errors
 
-  @checkNumberRecycling_400.01_invalid_specifiedDate
+  @checkNumberRecycling_400.01_schema_not_compliant
+  Scenario: Invalid Argument. Generic Syntax Exception
+    Given the request body is included but is not compliant with the schema at "#/components/schemas/CreateCheckNumRecycling"
+    When the request "checkNumberRecycling" is sent
+    Then the response status code is 400
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response header "Content-Type" is "application/json"
+    And the response property "$.status" is 400
+    And the response property "$.code" is "INVALID_ARGUMENT"
+    And the response property "$.message" contains a user friendly text
+
+  @checkNumberRecycling_400.02_no_request_body
+  Scenario: Missing request body
+    Given the request body is not included
+    When the request "checkNumberRecycling" is sent
+    Then the response status code is 400
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response header "Content-Type" is "application/json"
+    And the response property "$.status" is 400
+    And the response property "$.code" is "INVALID_ARGUMENT"
+    And the response property "$.message" contains a user friendly text
+
+  @checkNumberRecycling_400.03_empty_request_body
+  Scenario: Empty object as request body
+    Given the request body is set to "{}"
+    When the request "checkNumberRecycling" is sent
+    Then the response status code is 400
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response header "Content-Type" is "application/json"
+    And the response property "$.status" is 400
+    And the response property "$.code" is "INVALID_ARGUMENT"
+    And the response property "$.message" contains a user friendly text
+
+  @checkNumberRecycling_400.04_out_of_range
+  Scenario: Error when specifiedDate is out of range
+    Given the request body property "$.specifiedDate" is set to a value in the future
+    When the request "checkNumberRecycling" is sent
+    Then the response status code is 400
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response header "Content-Type" is "application/json"
+    And the response property "$.status" is 400
+    And the response property "$.code" is "OUT_OF_RANGE"
+    And the response property "$.message" contains a user friendly text
+
+  @checkNumberRecycling_400.05_invalid_specifiedDate
   Scenario: Error 400 when specified date does not comply with the RFC 3339 calendar date format (YYYY-MM-DD).
     Given a valid testing phone number supported by the service, identified by the access token or provided in the request body
     And the request body is set to a valid parameter combination with property "$.specifiedDate" set to "<invalid_specifiedDate>"
     When the request "checkNumberRecycling" is sent
     Then the response status code is 400
-    And the response property "$.code" is "INVALID_ARGUMENT"
-    And the response property "$.message" contains a user friendly text
-    And the response property "$.status" is 400
-
-  @checkNumberRecycling_400.2_no_request_body
-  Scenario: Missing request body
-    Given the request body is not included
-    When the request "checkNumberRecycling" is sent
-    Then the response status code is 400
-    And the response property "$.status" is 400
-    And the response property "$.code" is "INVALID_ARGUMENT"
-    And the response property "$.message" contains a user friendly text
-
-  @checkNumberRecycling_400.3_empty_request_body
-  Scenario: Empty object as request body
-    Given the request body is set to "{}"
-    When the request "checkNumberRecycling" is sent
-    Then the response status code is 400
-    And the response property "$.status" is 400
-    And the response property "$.code" is "INVALID_ARGUMENT"
-    And the response property "$.message" contains a user friendly text
-
-  @checkNumberRecycling_400.4_out_of_range
-  Scenario: Error when specifiedDate is out of range
-    Given the request body property "$.specifiedDate" is set to a value in the future
-    When the request "checkNumberRecycling" is sent
-    Then the response status code is 400
-    And the response property "$.status" is 400
-    And the response property "$.code" is "OUT_OF_RANGE"
-    And the response property "$.message" contains a user friendly text
-
-  @checkNumberRecycling_400.5_invalid_argument
-  Scenario: Invalid Argument. Generic Syntax Exception
-    Given the request body is set to any value which is not compliant with the OAS schema at "/components/schemas/CreateCheckNumRecycling"
-    When the request "checkNumberRecycling" is sent
-    Then the response status code is 400
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response header "Content-Type" is "application/json"
     And the response property "$.status" is 400
     And the response property "$.code" is "INVALID_ARGUMENT"
     And the response property "$.message" contains a user friendly text
 
   # Generic 401 errors
 
-  @checkNumberRecycling_401.1_expired_access_token
-  Scenario: Error response for expired access token
-    Given the header "Authorization" is set to an expired access token
-    When the request "checkNumberRecycling" is sent
-    Then the response status code is 401
-    And the response property "$.code" is "UNAUTHENTICATED"
-    And the response property "$.message" contains a user friendly text
-    And the response property "$.status" is 401
-
-  @checkNumberRecycling_401.2_invalid_access_token
-  Scenario: Error response for invalid access token
-    Given the header "Authorization" is set to an invalid access token which is invalid for reasons other than lifetime expiry
-    When the request "checkNumberRecycling" is sent
-    Then the response status code is 401
-    And the response property "$.code" is "UNAUTHENTICATED"
-    And the response property "$.message" contains a user friendly text
-    And the response property "$.status" is 401
-
-  @checkNumberRecycling_401.3_no_header_authorization
+  @checkNumberRecycling_401.01_no_authorization_header
   Scenario: Error response for no header "Authorization"
     Given the header "Authorization" is not sent
     When the request "checkNumberRecycling" is sent
     Then the response status code is 401
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response header "Content-Type" is "application/json"
+    And the response property "$.status" is 401
     And the response property "$.code" is "UNAUTHENTICATED"
     And the response property "$.message" contains a user friendly text
+
+  @checkNumberRecycling_401.02_expired_access_token
+  Scenario: Error response for expired access token
+    Given the header "Authorization" is set to an expired access token
+    When the request "checkNumberRecycling" is sent
+    Then the response status code is 401
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response header "Content-Type" is "application/json"
     And the response property "$.status" is 401
+    And the response property "$.code" is "UNAUTHENTICATED"
+    And the response property "$.message" contains a user friendly text
+
+  @checkNumberRecycling_401.03_invalid_access_token
+  Scenario: Error response for invalid access token
+    Given the header "Authorization" is set to an invalid access token
+    When the request "checkNumberRecycling" is sent
+    Then the response status code is 401
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response header "Content-Type" is "application/json"
+    And the response property "$.status" is 401
+    And the response property "$.code" is "UNAUTHENTICATED"
+    And the response property "$.message" contains a user friendly text
 
   # Generic 403 errors
 
-  @checkNumberRecycling_403.1_invalid_token_permissions
-  Scenario: Access token does not have the required permissions
-    Given the header "Authorization" is set to an access token without the required scope
+  @checkNumberRecycling_403.01_missing_access_token_scope
+  Scenario: Missing access token scope
+    Given the header "Authorization" is set to an access token that does not include scope "number-recycling:check"
     When the request "checkNumberRecycling" is sent
     Then the response status code is "403"
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response header "Content-Type" is "application/json"
     And the response property "$.status" is 403
     And the response property "$.code" is "PERMISSION_DENIED"
     And the response property "$.message" contains a user friendly text
@@ -134,7 +152,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
   @checkNumberRecycling_C02.01_phone_number_not_schema_compliant
   Scenario: Phone number value does not comply with the schema
     Given the header "Authorization" is set to a valid access which does not identify a single phone number
-    And the request body property "$.phoneNumber" does not comply with the OAS schema at "/components/schemas/PhoneNumber"
+    And the request body property "$.phoneNumber" does not comply with the OAS schema at "#/components/schemas/PhoneNumber"
     When the request "checkNumberRecycling" is sent
     Then the response status code is 400
     And the response property "$.status" is 400
@@ -153,7 +171,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
 
   # Only with a 3-legged access token
   @checkNumberRecycling_C02.03_unnecessary_phone_number
-  Scenario: Phone number should not be included when it can be deducted from the access token
+  Scenario: Phone number not to be included when it can be deduced from the access token
     Given the header "Authorization" is set to a valid access token identifying a phone number
     And  the request body property "$.phoneNumber" is set to a valid phone number
     When the request "checkNumberRecycling" is sent
@@ -163,7 +181,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
     And the response property "$.message" contains a user friendly text
 
   @checkNumberRecycling_C02.04_missing_phone_number
-  Scenario: Phone number not included and cannot be deducted from the access token
+  Scenario: Phone number not included and cannot be deduced from the access token
     Given the header "Authorization" is set to a valid access which does not identify a single phone number
     And the request body property "$.phoneNumber" is not included
     When the request "checkNumberRecycling" is sent
