@@ -45,7 +45,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
 
   @checkNumberRecycling_400.01_schema_not_compliant
   Scenario: Invalid Argument. Generic Syntax Exception
-    Given the request body is included but is not compliant with the schema at "#/components/schemas/CreateCheckNumRecycling"
+    Given the request body is included but does not comply with the schema at "#/components/schemas/CreateCheckNumRecycling"
     When the request "checkNumberRecycling" is sent
     Then the response status code is 400
     And the response header "x-correlator" has same value as the request header "x-correlator"
