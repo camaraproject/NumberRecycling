@@ -76,7 +76,32 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
     And the response property "$.code" is "INVALID_ARGUMENT"
     And the response property "$.message" contains a user friendly text
 
-  @checkNumberRecycling_400.04_out_of_range
+# applicable for operations with request body
+  @checkNumberRecycling_400.05_missing_required_property
+  Scenario Outline: Error response for missing required property in request body
+    Given the request body property "<required_property>" is not included
+    When the request "checkNumberRecycling" is sent
+    Then the response status code is 400
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response header "Content-Type" is "application/json"
+    And the response property "$.status" is 400
+    And the response property "$.code" is "INVALID_ARGUMENT"
+    And the response property "$.message" contains a user friendly text
+
+    Examples:
+      | required_property |
+      | $.specifiedDate   |
+
+  @checkNumberRecycling_400.06_invalid_x-correlator
+  Scenario: Invalid x-correlator header
+    Given the header "x-correlator" does not comply with the schema at "#/components/schemas/XCorrelator"
+    When the request "checkNumberRecycling" is sent
+    Then the response status code is 400
+    And the response property "$.status" is 400
+    And the response property "$.code" is "INVALID_ARGUMENT"
+    And the response property "$.message" contains a user friendly text
+
+  @checkNumberRecycling_400.07_out_of_range
   Scenario: Error when specifiedDate is out of range
     Given the request body property "$.specifiedDate" is set to a value in the future
     When the request "checkNumberRecycling" is sent
@@ -87,7 +112,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
     And the response property "$.code" is "OUT_OF_RANGE"
     And the response property "$.message" contains a user friendly text
 
-  @checkNumberRecycling_400.05_invalid_specifiedDate
+  @checkNumberRecycling_400.08_invalid_specifiedDate
   Scenario: Error 400 when specified date does not comply with the RFC 3339 calendar date format (YYYY-MM-DD).
     Given a valid testing phone number supported by the service, identified by the access token or provided in the request body
     And the request body is set to a valid parameter combination but property "$.specifiedDate" is not comply with the RFC 3339 calendar date format
