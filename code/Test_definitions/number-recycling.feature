@@ -38,7 +38,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
     Then the response status code is 200
     And the response header "Content-Type" is "application/json"
     And the response header "x-correlator" has same value as the request header "x-correlator"
-    And the response body complies with the OAS schema at "/components/schemas/CheckNumRecyclingInfo"
+    And the response body complies with the OAS schema at "#/components/schemas/CheckNumRecyclingInfo"
     And the value of response property "$.phoneNumberRecycled" is true
 
   # Generic 400 errors
