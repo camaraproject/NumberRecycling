@@ -151,7 +151,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
 
   @checkNumberRecycling_C02.01_phone_number_not_schema_compliant
   Scenario: Phone number value does not comply with the schema
-    Given the header "Authorization" is set to a valid access which does not identify a single phone number
+    Given the header "Authorization" is set to a valid access token which does not identify a single phone number
     And the request body property "$.phoneNumber" does not comply with the OAS schema at "#/components/schemas/PhoneNumber"
     When the request "checkNumberRecycling" is sent
     Then the response status code is 400
