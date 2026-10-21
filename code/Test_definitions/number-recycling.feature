@@ -140,7 +140,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
   Scenario: Missing access token scope
     Given the header "Authorization" is set to an access token that does not include scope "number-recycling:check"
     When the request "checkNumberRecycling" is sent
-    Then the response status code is "403"
+    Then the response status code is 403
     And the response header "x-correlator" has same value as the request header "x-correlator"
     And the response header "Content-Type" is "application/json"
     And the response property "$.status" is 403
