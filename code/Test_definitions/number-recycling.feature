@@ -67,7 +67,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
 
   @checkNumberRecycling_400.03_empty_request_body
   Scenario: Empty object as request body
-    Given the request body is set to "{}"
+    Given the request body is set to {}
     When the request "checkNumberRecycling" is sent
     Then the response status code is 400
     And the response header "x-correlator" has same value as the request header "x-correlator"
