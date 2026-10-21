@@ -78,7 +78,7 @@ Changes documented below are compared to version 0.3.0-rc.1.
 
 ### Fixed
 
-* N/A
+* Update date format length on specifiedDate by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/120
 
 ### Removed
 
