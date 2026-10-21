@@ -90,7 +90,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
   @checkNumberRecycling_400.05_invalid_specifiedDate
   Scenario: Error 400 when specified date does not comply with the RFC 3339 calendar date format (YYYY-MM-DD).
     Given a valid testing phone number supported by the service, identified by the access token or provided in the request body
-    And the request body is set to a valid parameter combination with property "$.specifiedDate" set to "<invalid_specifiedDate>"
+    And the request body is set to a valid parameter combination but property "$.specifiedDate" is not comply with the RFC 3339 calendar date format
     When the request "checkNumberRecycling" is sent
     Then the response status code is 400
     And the response header "x-correlator" has same value as the request header "x-correlator"
