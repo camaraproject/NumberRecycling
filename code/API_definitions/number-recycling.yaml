@@ -95,7 +95,7 @@ info:
     <!-- CAMARA:MANDATORY:request-body-strictness:END -->
 
   version: wip
-  x-camara-commonalities: 0.9.0
+  x-camara-commonalities: wip
 
   license:
     name: Apache 2.0
