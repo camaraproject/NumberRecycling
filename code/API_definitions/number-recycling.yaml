@@ -53,6 +53,8 @@ info:
     For a typical scenario, as illustrated in the potential scenarios, the ASP may have established a trusted association between the user and the phone number during onboarding for its service, and may record that onboarding date. For the first invocation of the Number Recycling API, the ASP may use the onboarding date as `specifiedDate`, if this is the trusted reference date according to its own policy. For subsequent invocations, different strategies may be valid depending on the ASP's policy and implementation. For example, the ASP may continue using the original onboarding date, or it may choose to advance the reference date to a later trusted point. One possible operational pattern is to use the date of a previous Number Recycling check that returned `false`, provided that this is consistent with the ASP's own trust model.
 
     <!-- CAMARA:MANDATORY:authorization-and-authentication:BEGIN -->
+    <!-- CAMARA:MANDATORY:authorization-and-authentication:BEGIN -->
+
     # Authorization and authentication
 
     The "Camara Security and Interoperability Profile" provides details of how an API consumer requests an access token. Please refer to Identity and Consent Management (https://github.com/camaraproject/IdentityAndConsentManagement/) for the released version of the profile.
