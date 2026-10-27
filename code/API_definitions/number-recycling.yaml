@@ -204,8 +204,8 @@ components:
                       - 400
                   code:
                     enum:
-                      - GENERIC_400_INVALID_ARGUMENT
-                      - NUMBER_RECYCLING_400_OUT_OF_RANGE
+                      - INVALID_ARGUMENT
+                      - OUT_OF_RANGE
           examples:
             GENERIC_400_INVALID_ARGUMENT:
               $ref: "../common/CAMARA_common.yaml#/components/examples/GENERIC_400_INVALID_ARGUMENT"
