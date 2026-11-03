@@ -72,15 +72,20 @@ Changes documented below are compared to version 0.3.0-rc.1.
 
 ### Added
 
-* N/A
+* Add HowtoUseAPI.md file by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/102
+* CIBA in NR is problematic by @AxelNennker in https://github.com/camaraproject/NumberRecycling/pull/110
 
 ### Changed
 
-* N/A
+* Scenario 2 lost its behavioral note for phoneNumberRecycled=true by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/119
+* Update date format length on specifiedDate by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/120
+* Update '400 out_of_range' error description by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/122
+* Refer common error response from Commonalities r4.4 by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/128
 
 ### Fixed
 
-* N/A
+* Align number recycling with Commonalities r4.4 by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/127
+* Align number recycling with Commonalities r4.4 in terms of testing by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/130
 
 ### Removed
 
