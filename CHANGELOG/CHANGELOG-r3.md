@@ -2,6 +2,7 @@
 
 <!-- TOC:START -->
 ## Table of Contents
+- [r3.2](#r32)
 - [r3.1](#r31)
 <!-- TOC:END -->
 
@@ -13,6 +14,55 @@ The below sections record the changes for each API version in each release as fo
 * for the first release-candidate, all changes since the last public release
 * for subsequent release-candidate(s), only the delta to the previous release-candidate
 * for a public release, the consolidated changes since the previous public release
+
+# r3.2
+
+## Release Notes
+
+This release candidate contains the definition and documentation of
+* number-recycling 0.3.0-rc.2
+
+The API definition(s) are based on
+* Commonalities r4.4 (0.9.0)
+* Identity and Consent Management r4.2 (0.5.0)
+
+## number-recycling 0.3.0-rc.2
+
+**number-recycling 0.3.0-rc.2 is a release-candidate version of this API.**
+
+Changes documented below are compared to version 0.3.0-rc.1.
+
+- API definition **with inline documentation**:
+  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r3.2/code/API_definitions/number-recycling.yaml&nocors)
+  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/NumberRecycling/r3.2/code/API_definitions/number-recycling.yaml)
+  - OpenAPI [YAML spec file](https://github.com/camaraproject/NumberRecycling/blob/r3.2/code/API_definitions/number-recycling.yaml)
+
+### Breaking changes
+
+* N/A
+
+### Added
+
+* Add HowtoUseAPI.md file by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/102
+* Note on CIBA and the recommended JWT Bearer flow with `tel:` prefix by @AxelNennker in https://github.com/camaraproject/NumberRecycling/pull/110
+* Behavioural note for Scenario 2 (`phoneNumberRecycled: true`) by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/119
+
+### Changed
+
+* Updated `400 OUT_OF_RANGE` error description by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/122
+* `info.description` templates aligned with Commonalities r4.4 by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/127
+* Error responses and examples aligned with the Commonalities r4.4 error catalogue; status and code values unchanged by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/128
+* Test definitions aligned with the Commonalities r4.4 test templates by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/130
+
+### Fixed
+
+* `specifiedDate` `minLength`/`maxLength` set to 10 to match the RFC 3339 full-date format by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/120
+
+### Removed
+
+* N/A
+
+**Full Changelog**: https://github.com/camaraproject/NumberRecycling/compare/r3.1...r3.2
 
 # r3.1
 
