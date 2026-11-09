@@ -2,7 +2,7 @@ repository:
   repository_name: NumberRecycling
   release_tag: r3.2
   release_type: pre-release-rc
-  release_date: null
+  release_date: '2026-11-09T09:05:26Z'
   src_commit_sha: 011729d50f9923554d8ea6effe1632aabc304d15
 apis:
 - api_name: number-recycling
