@@ -78,7 +78,7 @@ Changes documented below are compared to version 0.3.0-rc.1.
 
 ### Changed
 
-* Update `400 out_of_range` error description by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/122
+* Updated `400 OUT_OF_RANGE` error description by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/122
 * `info.description` templates aligned with Commonalities r4.4 by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/127
 * Error responses and examples aligned with the Commonalities r4.4 error catalogue; status and code values unchanged by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/128
 * Test definitions aligned with the Commonalities r4.4 test templates by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/130
