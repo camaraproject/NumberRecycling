@@ -73,19 +73,19 @@ Changes documented below are compared to version 0.3.0-rc.1.
 ### Added
 
 * Add HowtoUseAPI.md file by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/102
-* CIBA in NR is problematic by @AxelNennker in https://github.com/camaraproject/NumberRecycling/pull/110
+* Note on CIBA and the recommended JWT Bearer flow with `tel:` prefix by @AxelNennker in https://github.com/camaraproject/NumberRecycling/pull/110
+* Behavioural note for Scenario 2 (`phoneNumberRecycled: true`) by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/119
 
 ### Changed
 
-* Scenario 2 lost its behavioral note for phoneNumberRecycled=true by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/119
-* Update date format length on specifiedDate by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/120
-* Update '400 out_of_range' error description by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/122
-* Refer common error response from Commonalities r4.4 by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/128
+* Update `400 out_of_range` error description by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/122
+* `info.description` templates aligned with Commonalities r4.4 by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/127
+* Error responses and examples aligned with the Commonalities r4.4 error catalogue; status and code values unchanged by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/128
+* Test definitions aligned with the Commonalities r4.4 test templates by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/130
 
 ### Fixed
 
-* Align number recycling with Commonalities r4.4 by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/127
-* Align number recycling with Commonalities r4.4 in terms of testing by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/130
+* `specifiedDate` `minLength`/`maxLength` set to 10 to match the RFC 3339 full-date format by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/120
 
 ### Removed
 
