@@ -76,7 +76,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
     And the response property "$.code" is "INVALID_ARGUMENT"
     And the response property "$.message" contains a user friendly text
 
-# applicable for operations with request body
+  # applicable for operations with request body
   @checkNumberRecycling_400.05_missing_required_property
   Scenario Outline: Error response for missing required property in request body
     Given the request body property "<required_property>" is not included
@@ -115,7 +115,7 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
   @checkNumberRecycling_400.08_invalid_specifiedDate
   Scenario: Error 400 when specified date does not comply with the RFC 3339 calendar date format (YYYY-MM-DD).
     Given a valid testing phone number supported by the service, identified by the access token or provided in the request body
-    And the request body is set to a valid parameter combination but property "$.specifiedDate" is not comply with the RFC 3339 calendar date format
+    And the request body is set to a valid parameter combination but property "$.specifiedDate" does not comply with the RFC 3339 calendar date format
     When the request "checkNumberRecycling" is sent
     Then the response status code is 400
     And the response header "x-correlator" has same value as the request header "x-correlator"
