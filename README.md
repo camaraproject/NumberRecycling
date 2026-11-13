@@ -20,6 +20,7 @@ Sandbox API Repository to describe, develop, document, and test the NumberRecycl
 * The API provides the API consumer with the ability to:  
   * Check whether the subscriber of the phone number has changed. A common scenario is when Application service provider (ASP) wants to check whether there has been a change in the user associated with the phone number after the specified date. This allows the ASP to ensure that a phone number is correctly linked to an user and prevent the mis-delivery of SMS messages.
 * Describe, develop, document, and test the API
+* Supporting documentation: [How to Use the Number Recycling API](documentation/SupportingDocuments/HowtoUseAPI.md) (flow diagram from the API consumer perspective)
 * Started: August 2024
 
 <!-- CAMARA:RELEASE-INFO:START -->
