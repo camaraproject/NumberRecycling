@@ -5,6 +5,8 @@ info:
     The API can be used to check whether the subscriber of the phone number has changed.
     A common scenario is when Application service provider (ASP) wants to check whether there has been a change in the user associated with the phone number after the specified date. This allows the ASP to ensure that a phone number is correctly linked to an user and prevent the mis-delivery of SMS messages.
 
+    For a flow diagram of how an API consumer can use this API, see [How to Use the Number Recycling API](https://github.com/camaraproject/NumberRecycling/blob/main/documentation/SupportingDocuments/HowtoUseAPI.md).
+
     For example, below is a potential scenarios:
     * Scenario 1
       * Pre-conditions
@@ -22,21 +24,21 @@ info:
     <img width="4000" alt="Number_Recycling_scenario_1" src="https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.1/documentation/API_documentation/assets/Number_Recycling_scenario_1.png">
 
     Note:
-    * When API receives a request with specified date on which a user signed a contract with MNO, the API respond sets to 'false'(e.g., 2023-10-09 in the Scenario 1 of the figure above).
+    * When API receives a request with specified date on which a user signed a contract with MNO, the API response sets to 'false' (e.g., 2023-10-09 in the Scenario 1 of the figure above).
     * This Scenario 1 corresponds to the [Line 0601 in Section 4.4 of the CAMARA whitepaper "CAMARA APIs: Functional Differences"](https://camaraproject.org/wp-content/uploads/sites/12/2026/06/CAMARA-wp_api_diff_060126a.pdf).
 
-      * Scenario 2
-        * Pre-conditions
-          * User A signed a contract with MNO A for the phone number '+123456789' on October 9, 2023, and canceled it on February 25, 2024. Subsequently, User B signed a contract with MNO A for the same phone number on September 21, 2024, and is still using it.
-          * User A also signed contracts with ASP A on December 22, 2023 for its services.
-          * ASP A holds the contract date (2023-12-22) and the phone number (+123456789) for User A.
-          * Currently, on November 2, 2024, ASP A wishes to send a SMS message to User A.
-        * Potential operations
-          * ASP A sends a request with specified date (2023-12-22) and phone number (+123456789) to the Number Recycling API.
-          * The API response sets to 'true', indicating that there has been a change in the user associated with the phone number.
-        * Post-conditions
-          * ASP A decides to stop sending the SMS message to User A and contacts User A by mail.
-        * By following these steps, ASP A ensures that a phone number is not linked to User A and prevents the mis-delivery of the SMS message.
+    * Scenario 2
+      * Pre-conditions
+        * User A signed a contract with MNO A for the phone number '+123456789' on October 9, 2023, and canceled it on February 25, 2024. Subsequently, User B signed a contract with MNO A for the same phone number on September 21, 2024, and is still using it.
+        * User A also signed contracts with ASP A on December 22, 2023 for its services.
+        * ASP A holds the contract date (2023-12-22) and the phone number (+123456789) for User A.
+        * Currently, on November 2, 2024, ASP A wishes to send a SMS message to User A.
+      * Potential operations
+        * ASP A sends a request with specified date (2023-12-22) and phone number (+123456789) to the Number Recycling API.
+        * The API response sets to 'true', indicating that there has been a change in the user associated with the phone number.
+      * Post-conditions
+        * ASP A decides to stop sending the SMS message to User A and contacts User A by mail.
+      * By following these steps, ASP A ensures that a phone number is not linked to User A and prevents the mis-delivery of the SMS message.
 
     <img width="4000" alt="Number_Recycling_scenario_2" src="https://raw.githubusercontent.com/camaraproject/NumberRecycling/r1.1/documentation/API_documentation/assets/Number_Recycling_scenario_2.png">
 
@@ -48,7 +50,7 @@ info:
 
     ASP should choose a date when the ASP established a trusted association between the user and the phone number, for example onboarding, phone number verification, or another validated point in the ASP's own trust process. A previous Number Recycling check that returned `false` may be used as an operational reference date, if this is consistent with the ASP's own trust model.
 
-    However, a date that is trusted from the ASP perspective is not necessarily processable by every API provider. If `specifiedDate` is outside the API provider's supported/evaluable window and therefore cannot be processed as a valid reference date, the response should be `OUT_OF_RANGE` rather than a boolean result.
+    However, a date that is trusted from the ASP perspective is not necessarily processable by every API provider. If specifiedDate is outside the API provider’s supported/evaluable window, or is a future date, and therefore cannot be processed as a valid reference date, the response should be OUT_OF_RANGE rather than a boolean result.
 
     For a typical scenario, as illustrated in the potential scenarios, the ASP may have established a trusted association between the user and the phone number during onboarding for its service, and may record that onboarding date. For the first invocation of the Number Recycling API, the ASP may use the onboarding date as `specifiedDate`, if this is the trusted reference date according to its own policy. For subsequent invocations, different strategies may be valid depending on the ASP's policy and implementation. For example, the ASP may continue using the original onboarding date, or it may choose to advance the reference date to a later trusted point. One possible operational pattern is to use the date of a previous Number Recycling check that returned `false`, provided that this is consistent with the ASP's own trust model.
 
@@ -67,6 +69,8 @@ info:
     this defeats the purpose of the number recycling API which is to determine whether the MSISDN was reassigned.
     If the ASP and the CSP know at onboarding time that User consent is not needed, then JWT-Bearer-Flow with tel-prefix is recommended to be used with number recycling.
 
+    <!-- CAMARA:MANDATORY:identifying-phone-number-from-access-token:BEGIN -->
+
     # Identifying the phone number from the access token
 
     This API requires the API consumer to identify a phone number as the subject of the API as follows:
@@ -78,7 +82,9 @@ info:
     ## Error handling:
 
     - If the subject cannot be identified from the access token and the optional `phoneNumber` field is not included in the request, then the server will return an error with the `422 MISSING_IDENTIFIER` error code.
+
     - If the subject can be identified from the access token and the optional `phoneNumber` field is also included in the request, then the server will return an error with the `422 UNNECESSARY_IDENTIFIER` error code. This will be the case even if the same phone number is identified by these two methods, as the server is unable to make this comparison.
+    <!-- CAMARA:MANDATORY:identifying-phone-number-from-access-token:END -->
 
     <!-- CAMARA:MANDATORY:additional-error-responses:BEGIN -->
 
@@ -149,7 +155,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/CheckNumRecyclingInfo"
         '400':
-          $ref: '#/components/responses/CheckNumberRecyclingBadRequest400'
+          $ref: '../common/CAMARA_common.yaml#/components/responses/BadRequestWithRange400'
         '401':
           $ref: '../common/CAMARA_common.yaml#/components/responses/Unauthenticated401'
         '403':
@@ -188,32 +194,3 @@ components:
           type: boolean
           description: |
             Set to true (Boolean, not string) when there has been a change in the subscriber associated with the specific phone number after “specifiedDate”.
-  responses:
-    CheckNumberRecyclingBadRequest400:
-      description: Problem with the client request
-      headers:
-        x-correlator:
-          $ref: '../common/CAMARA_common.yaml#/components/headers/x-correlator'
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: "../common/CAMARA_common.yaml#/components/schemas/ErrorInfo"
-              - type: object
-                properties:
-                  status:
-                    enum:
-                      - 400
-                  code:
-                    enum:
-                      - INVALID_ARGUMENT
-                      - OUT_OF_RANGE
-          examples:
-            GENERIC_400_INVALID_ARGUMENT:
-              $ref: "../common/CAMARA_common.yaml#/components/examples/GENERIC_400_INVALID_ARGUMENT"
-            NUMBER_RECYCLING_400_OUT_OF_RANGE:
-              description: Out of Range. Specific Syntax Exception used when a given field has a pre-defined range or a invalid filter criteria combination is requested, or when a given field is set to a value of future date
-              value:
-                status: 400
-                code: OUT_OF_RANGE
-                message: Client specified an invalid range.
