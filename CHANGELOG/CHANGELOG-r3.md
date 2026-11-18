@@ -95,7 +95,8 @@ Changes documented below are compared to version 0.2.0.
   - "C02.02_phone_number_not_found"
   - "400.05_missing_required_property"
   - "400.06_invalid_x-correlator"
-* How to use the specifiedDate was clarified by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/93 and https://github.com/camaraproject/NumberRecycling/pull/139
+* Section "How to choose specifiedDate by ASP (API consumer)" was added to the API description by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/93 and https://github.com/camaraproject/NumberRecycling/pull/122, and @albertoramosmonagas in https://github.com/camaraproject/NumberRecycling/pull/139
+  - It states that a `specifiedDate` outside the API provider's supported window, or in the future, is answered with `400 OUT_OF_RANGE`
 * HowtoUseAPI.md file was added and linked from the README and the API description by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/102 and @albertoramosmonagas in https://github.com/camaraproject/NumberRecycling/pull/139
 * Note on CIBA and the recommended JWT Bearer flow with `tel:` prefix was added by @AxelNennker in https://github.com/camaraproject/NumberRecycling/pull/110
 * Behavioural note for Scenario 2 (`phoneNumberRecycled: true`) was added by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/106 and https://github.com/camaraproject/NumberRecycling/pull/119
