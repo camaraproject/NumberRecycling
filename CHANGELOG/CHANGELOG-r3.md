@@ -102,7 +102,14 @@ Changes documented below are compared to version 0.2.0.
 
 ### Changed
 
-* N/A
+* Aligned with CAMARA Commonalities r4.4 (0.9.0) by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/101, https://github.com/camaraproject/NumberRecycling/pull/120, https://github.com/camaraproject/NumberRecycling/pull/127 and https://github.com/camaraproject/NumberRecycling/pull/128, @yamamoto0104 in https://github.com/camaraproject/NumberRecycling/pull/78, and @albertoramosmonagas in https://github.com/camaraproject/NumberRecycling/pull/139
+  - Error responses and examples were aligned with the Commonalities r4.4 error catalogue; status and code values are unchanged
+  - `minLength`/`maxLength` of 10 were set for `specifiedDate`, matching the RFC 3339 full-date format already required by `format: date`
+  - Section "Request body strictness" was added: request bodies with undeclared properties are rejected with `400 INVALID_ARGUMENT`
+* Aligned the test definitions with the Commonalities r4.4 test template by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/130
+  - Scenario identifiers were renumbered and partly renamed, e.g. `400.4_out_of_range` to `400.07_out_of_range` and `403.1_invalid_token_permissions` to `403.01_missing_access_token_scope`
+* Notes of Scenario 1 and Scenario 2 in the API description were aligned with the CAMARA whitepaper "CAMARA APIs: Functional Differences" by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/106 and https://github.com/camaraproject/NumberRecycling/pull/119
+  - The Scenario 2 note now describes a specified date on which a previous user held the phone number (response `true`); it replaced the note on a specified date without a contract for the phone number
 
 ### Fixed
 
