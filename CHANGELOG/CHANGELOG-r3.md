@@ -98,7 +98,7 @@ Changes documented below are compared to version 0.2.0.
   - "400.05_missing_required_property"
   - "400.06_invalid_x-correlator"
 * How to use the specifiedDate was clarified by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/93 and https://github.com/camaraproject/NumberRecycling/pull/139
-* HowtoUseAPI.md file was added and was linked @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/102 and https://github.com/camaraproject/NumberRecycling/pull/139
+* HowtoUseAPI.md file was added and linked from the README and the API description by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/102 and @albertoramosmonagas in https://github.com/camaraproject/NumberRecycling/pull/139
 * Note on CIBA and the recommended JWT Bearer flow with `tel:` prefix was added by @AxelNennker in https://github.com/camaraproject/NumberRecycling/pull/110
 * Behavioural note for Scenario 2 (`phoneNumberRecycled: true`) was added by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/106 and https://github.com/camaraproject/NumberRecycling/pull/119
   - Note: This may be a behavioral change as it clarifies previously underspecified behavior.
