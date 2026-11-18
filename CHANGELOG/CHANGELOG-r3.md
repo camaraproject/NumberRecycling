@@ -93,10 +93,10 @@ Changes documented below are compared to version 0.2.0.
 
 * Aligned with CAMARA Commonalities r4.4 (0.9.0) by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/101, https://github.com/camaraproject/NumberRecycling/pull/120, https://github.com/camaraproject/NumberRecycling/pull/127, and https://github.com/camaraproject/NumberRecycling/pull/128, @yamamoto0104 in https://github.com/camaraproject/NumberRecycling/pull/78
   - `specifiedDate` was required to match the RFC 3339 full-date format
-* Aligned the test definitions with the Commonalities r4.4 test template by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/84 and https://github.com/camaraproject/NumberRecycling/pull/130
-  - "C02.02_phone_number_not_found" test scenario was added
-  - "400.05_missing_required_property" test scenario was added
-  - "400.06_invalid_x-correlator" test scenario was added
+* Test scenarios were added by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/84 and https://github.com/camaraproject/NumberRecycling/pull/130
+  - "C02.02_phone_number_not_found"
+  - "400.05_missing_required_property"
+  - "400.06_invalid_x-correlator"
 * How to use the specifiedDate was clarified by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/93 and https://github.com/camaraproject/NumberRecycling/pull/139
 * HowtoUseAPI.md file was added and was linked @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/102 and https://github.com/camaraproject/NumberRecycling/pull/139
 * Note on CIBA and the recommended JWT Bearer flow with `tel:` prefix was added by @AxelNennker in https://github.com/camaraproject/NumberRecycling/pull/110
