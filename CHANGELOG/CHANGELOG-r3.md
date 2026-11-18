@@ -91,8 +91,6 @@ Changes documented below are compared to version 0.2.0.
 
 ### Added
 
-* Aligned with CAMARA Commonalities r4.4 (0.9.0) by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/101, https://github.com/camaraproject/NumberRecycling/pull/120, https://github.com/camaraproject/NumberRecycling/pull/127, and https://github.com/camaraproject/NumberRecycling/pull/128, @yamamoto0104 in https://github.com/camaraproject/NumberRecycling/pull/78
-  - `specifiedDate` was required to match the RFC 3339 full-date format
 * Test scenarios were added by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/84 and https://github.com/camaraproject/NumberRecycling/pull/130
   - "C02.02_phone_number_not_found"
   - "400.05_missing_required_property"
