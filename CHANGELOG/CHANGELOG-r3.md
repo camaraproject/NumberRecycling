@@ -99,8 +99,6 @@ Changes documented below are compared to version 0.2.0.
   - It states that a `specifiedDate` outside the API provider's supported window, or in the future, is answered with `400 OUT_OF_RANGE`
 * HowtoUseAPI.md file was added and linked from the README and the API description by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/102 and @albertoramosmonagas in https://github.com/camaraproject/NumberRecycling/pull/139
 * Note on CIBA and the recommended JWT Bearer flow with `tel:` prefix was added by @AxelNennker in https://github.com/camaraproject/NumberRecycling/pull/110
-* Behavioural note for Scenario 2 (`phoneNumberRecycled: true`) was added by @Masa8106 in https://github.com/camaraproject/NumberRecycling/pull/106 and https://github.com/camaraproject/NumberRecycling/pull/119
-  - Note: This may be a behavioral change as it clarifies previously underspecified behavior.
 
 ### Changed
 
