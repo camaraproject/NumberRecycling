@@ -41,6 +41,16 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
     And the response body complies with the OAS schema at "#/components/schemas/CheckNumRecyclingInfo"
     And the value of response property "$.phoneNumberRecycled" is true
 
+  @checkNumberRecycling_03_success_request_response_when_specifiedDate_is_current_date
+  Scenario: Validate successful response when specifiedDate is the current date (latest valid reference date)
+    Given a valid phone number supported by the service, identified by the access token or provided in the request body
+    And the request body property "$.specifiedDate" is set to the current date
+    When the request "checkNumberRecycling" is sent
+    Then the response status code is 200
+    And the response header "Content-Type" is "application/json"
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response body complies with the OAS schema at "#/components/schemas/CheckNumRecyclingInfo"
+
   # Generic 400 errors
 
   @checkNumberRecycling_400.01_schema_not_compliant
@@ -116,6 +126,18 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
   Scenario: Error 400 when specified date does not comply with the RFC 3339 calendar date format (YYYY-MM-DD).
     Given a valid testing phone number supported by the service, identified by the access token or provided in the request body
     And the request body is set to a valid parameter combination but property "$.specifiedDate" does not comply with the RFC 3339 calendar date format
+    When the request "checkNumberRecycling" is sent
+    Then the response status code is 400
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response header "Content-Type" is "application/json"
+    And the response property "$.status" is 400
+    And the response property "$.code" is "INVALID_ARGUMENT"
+    And the response property "$.message" contains a user friendly text
+
+  @checkNumberRecycling_400.09_unknown_request_body_property
+  Scenario: Request body contains an unknown property not declared in the API specification
+    Given a valid phone number supported by the service, identified by the access token or provided in the request body
+    And the request body is set to a valid request body but also includes a property not declared in the schema at "#/components/schemas/CreateCheckNumRecycling"
     When the request "checkNumberRecycling" is sent
     Then the response status code is 400
     And the response header "x-correlator" has same value as the request header "x-correlator"

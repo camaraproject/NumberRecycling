@@ -170,7 +170,10 @@ components:
       $ref: "../common/CAMARA_common.yaml#/components/securitySchemes/openId"
   schemas:
     CreateCheckNumRecycling:
-      description: Properties to request for a number recycling check
+      description: |
+        Properties to request for a number recycling check.
+
+        `specifiedDate` is the starting date for the check: the API checks whether there has been a change in the subscriber associated with the specific phone number after this date.
       type: object
       required:
         - specifiedDate
@@ -178,12 +181,7 @@ components:
         phoneNumber:
           $ref: '../common/CAMARA_common.yaml#/components/schemas/PhoneNumber'
         specifiedDate:
-          type: string
-          format: date
-          minLength: 10
-          maxLength: 10
-          description: Specified date to check whether there has been a change in the subscriber associated with the specific phone number, in RFC 3339 calendar date format (YYYY-MM-DD).
-          example: "2024-10-31"
+          $ref: '../common/CAMARA_common.yaml#/components/schemas/Date'
     CheckNumRecyclingInfo:
       description: Properties to response to a number recycling check request
       type: object
