@@ -41,6 +41,16 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
     And the response body complies with the OAS schema at "#/components/schemas/CheckNumRecyclingInfo"
     And the value of response property "$.phoneNumberRecycled" is true
 
+  @checkNumberRecycling_03_success_request_response_when_specifiedDate_is_current_date
+  Scenario: Validate successful response when specifiedDate is the current date (latest valid reference date)
+    Given a valid phone number supported by the service, identified by the access token or provided in the request body
+    And the request body property "$.specifiedDate" is set to the current date in the API provider's time zone
+    When the request "checkNumberRecycling" is sent
+    Then the response status code is 200
+    And the response header "Content-Type" is "application/json"
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response body complies with the OAS schema at "#/components/schemas/CheckNumRecyclingInfo"
+
   # Generic 400 errors
 
   @checkNumberRecycling_400.01_schema_not_compliant
@@ -123,6 +133,22 @@ Feature: CAMARA Number Recycling API, vwip - Operation checkNumberRecycling
     And the response property "$.status" is 400
     And the response property "$.code" is "INVALID_ARGUMENT"
     And the response property "$.message" contains a user friendly text
+
+  @checkNumberRecycling_400.09_request_body_strictness
+  Scenario Outline: Undeclared property in request body
+    Given the request body is set to a valid request body
+    And the request body includes the property "<undeclared_property>" which is not declared in the schema at "#/components/schemas/CreateCheckNumRecycling"
+    When the request "checkNumberRecycling" is sent
+    Then the response status code is 400
+    And the response header "Content-Type" is "application/json"
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response property "$.status" is 400
+    And the response property "$.code" is "INVALID_ARGUMENT"
+    And the response property "$.message" contains a user friendly text
+
+    Examples:
+      | undeclared_property  |
+      | $.undeclaredProperty |
 
   # Generic 401 errors
 
